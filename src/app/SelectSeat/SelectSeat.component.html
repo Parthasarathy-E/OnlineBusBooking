@@ -1,0 +1,39 @@
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+  <div class="nav-items">
+    <a (click)="goTo('/home')">Home</a>
+    <a (click)="goTo('/aboutus')">About us</a>
+    <a (click)="goTo('/contactus')">Contact</a>
+    <a (click)="goTo('/selectlocation')">Search Buses</a>
+    <a (click)="goTo('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
+    <a (click)="goTo('/login')" *ngIf="!isLogedIn">Login</a>
+    <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+    </div>
+</nav>
+<body background = "assets/image/busseat-image.jpg">
+  <div class="bus">
+    <div class="select">
+      <h1>Please Select a Seat</h1>
+    </div>
+    <div class="exit"></div>
+    <br>
+    <mat-grid-list cols="5" rowHeight="3:2">
+      <mat-grid-tile *ngFor="let seat of seats">
+        <button
+          [disabled]="seat.booked"
+          (click)="selectSeat(seat)"
+          [ngClass]="{ green: !seat.value, blue: seat.value, black: seat.booked }"
+        >
+          {{ seat.index }}
+        </button>
+        <mat-grid-tile *ngIf="(seat.index - 2) % 4 == 0"></mat-grid-tile>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <br>
+    <div class="exit"></div>
+    <br>
+    <div class="btn">
+    <button (click)="bookBus()">Book</button>
+    </div>
+  </div>
+</body>

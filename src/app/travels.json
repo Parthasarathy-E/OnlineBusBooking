@@ -1,0 +1,29 @@
+[
+  {
+    "Bus_Number":1,
+    "Travels_Name":"City Travels",
+    "Source":"Chennai",
+    "Destination":"Coimbatore",
+    "Date":"2023-06-20"
+  },
+  {
+    "Bus_Number":2,
+    "Travels_Name":"Essar Travels",
+    "Source":"Chennai",
+    "Destination":"Coimbatore",
+    "Date":"2023-06-20"
+  },
+  {
+    "Bus_Number":3,
+    "Travels_Name":"Tranz King Travels",
+    "Source":"Chennai",
+    "Destination":"Coimbatore",
+    "Date":"2023-06-20"
+  },{
+    "Bus_Number":4,
+    "Travels_Name":"Royal Travels",
+    "Source":"Chennai",
+    "Destination":"Coimbatore",
+    "Date":"2023-06-20"
+  }
+]

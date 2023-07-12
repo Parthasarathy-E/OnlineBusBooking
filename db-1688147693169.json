@@ -1,0 +1,664 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "adminUsers": [
+    {
+      "email": "onlinebusbooking@gmail.com",
+      "password": "bus@123"
+    }
+  ],
+  "signupUsers": [
+    {
+      "name": "parthasarathy ",
+      "email": "partha11@gmail.com",
+      "mobilenumber": 9080756620,
+      "password": "partha@123",
+      "confirmpassword": "",
+      "id": 1,
+      "uid": 1001
+    },
+    {
+      "name": "Siva Ganesh",
+      "email": "siva@gmail.com",
+      "mobilenumber": 7092648001,
+      "password": "siva@123",
+      "confirmpassword": "",
+      "id": 2,
+      "uid": 1002
+    },
+    {
+      "name": "pranav",
+      "email": "pranav@gmail.com",
+      "mobilenumber": 9786596894,
+      "password": "pranav@123",
+      "confirmpassword": "",
+      "id": 3,
+      "uid": 1003
+    },
+    {
+      "name": "Praveen Kumar",
+      "email": "Praveenkumar@gmail.com",
+      "mobilenumber": 8925347231,
+      "password": "praveen@123",
+      "confirmpassword": "",
+      "id": 4,
+      "uid": 1004
+    },
+    {
+      "name": "1",
+      "email": "Praveenkumar@gmail.com",
+      "mobilenumber": 8925347231,
+      "password": "praveen@123",
+      "confirmpassword": "",
+      "id": 7,
+      "uid": 1007
+    },
+    {
+      "name": "1",
+      "email": "abarna25@gmail.com",
+      "mobilenumber": 9786596894,
+      "password": "abarna@123",
+      "confirmpassword": "",
+      "id": 8,
+      "uid": 1008
+    },
+    {
+      "name": "suriya",
+      "email": "suriya12@gmail.com",
+      "mobilenumber": 9361575766,
+      "password": "suriya@123",
+      "confirmpassword": "",
+      "id": 9,
+      "uid": 1009
+    },
+    {
+      "name": "1",
+      "email": "suriya12@gmail.com",
+      "mobilenumber": 9361575766,
+      "password": "suriya@123",
+      "confirmpassword": null,
+      "id": 10,
+      "uid": 1010
+    }
+  ],
+  "BusList": [
+    {
+      "Bus_Number": 1,
+      "Travels_Name": "City Travels",
+      "Source": "Chennai",
+      "Destination": "Coimbatore",
+      "Date": "2023-06-29",
+      "amount": 500,
+      "status": true,
+      "Seats": [
+        {
+          "index": 3,
+          "value": true,
+          "booked": true,
+          "name": "Siva Ganesh",
+          "age": "21",
+          "gender": "Male",
+          "phoneNumber": 123213,
+          "email": "sdgdgd@"
+        },
+        {
+          "index": 4,
+          "value": true,
+          "booked": true,
+          "name": "parthasarathy  E",
+          "age": "11",
+          "gender": "Male",
+          "phoneNumber": 1234567890,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 5,
+          "value": true,
+          "booked": true,
+          "name": "Praveen Kumar",
+          "age": "21",
+          "gender": "Male",
+          "phoneNumber": 123213,
+          "email": "sdgdgd@"
+        },
+        {
+          "index": 6,
+          "value": true,
+          "booked": true,
+          "name": "parthasarathy  E",
+          "age": "21",
+          "gender": "Male",
+          "phoneNumber": 123213,
+          "email": "sdgdgd@"
+        },
+        {
+          "index": 7,
+          "value": true,
+          "booked": true,
+          "name": "Santhip kumar",
+          "age": "22",
+          "gender": "Male",
+          "phoneNumber": 8925347231,
+          "email": "Praveenkumar@gmail.com"
+        },
+        {
+          "index": 8,
+          "value": true,
+          "booked": true,
+          "name": "suriya",
+          "age": "21",
+          "gender": "Male",
+          "phoneNumber": 8925347231,
+          "email": "Praveenkumar@gmail.com"
+        },
+        {
+          "index": 21,
+          "value": true,
+          "booked": true,
+          "name": "Praveen Kumar",
+          "age": "22",
+          "gender": "Male",
+          "phoneNumber": 9080756620,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 22,
+          "value": true,
+          "booked": true,
+          "name": "Praveen Kumar",
+          "age": "21",
+          "gender": "Male",
+          "phoneNumber": 9080756620,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 23,
+          "value": true,
+          "booked": true,
+          "name": "parthasarathy  E",
+          "age": "21",
+          "gender": "Male",
+          "phoneNumber": 9080756620,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 24,
+          "value": true,
+          "booked": true,
+          "name": "pranav",
+          "age": "17",
+          "gender": "Male",
+          "phoneNumber": 9080756620,
+          "email": "partha11@gmail.com"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "Bus_Number": 2,
+      "Travels_Name": "Essar Travels",
+      "Source": "Coimbatore",
+      "Destination": "Chennai",
+      "Date": "2023-06-29",
+      "amount": 500,
+      "Seats": [],
+      "status": true,
+      "id": 2
+    },
+    {
+      "Bus_Number": 3,
+      "Travels_Name": "Tranz King Travels",
+      "Source": "Chennai",
+      "Destination": "Coimbatore",
+      "Date": "2023-06-29",
+      "amount": 500,
+      "status": true,
+      "Seats": [],
+      "id": 3
+    },
+    {
+      "Bus_Number": 4,
+      "Travels_Name": "Royal Travels",
+      "Source": "Chennai",
+      "Destination": "Coimbatore",
+      "Date": "2023-06-29",
+      "amount": 500,
+      "status": true,
+      "Seats": [],
+      "id": 4
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "selectedBus": [],
+  "userDetails": [
+    {
+      "id": 1,
+      "name": "parthasarathy ",
+      "email": "partha11@gmail.com",
+      "mobilenumber": 9080756620,
+      "password": "partha@123",
+      "confirmpassword": "",
+      "uid": 1001
+    }
+  ],
+  "bookedSeats": [
+    {
+      "id": 1,
+      "ss70z": {
+        "uid": 1001,
+        "busDetails": {
+          "Bus_Number": 1,
+          "Travels_Name": "City Travels",
+          "Source": "Chennai",
+          "Destination": "Coimbatore",
+          "Date": "2023-06-29",
+          "amount": 500,
+          "status": true,
+          "Seats": [
+            {
+              "index": 3,
+              "value": true,
+              "booked": true,
+              "name": "Siva Ganesh",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 4,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "11",
+              "gender": "Male",
+              "phoneNumber": 1234567890,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 5,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 6,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 7,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": "22",
+              "gender": "Male",
+              "phoneNumber": 8925347231,
+              "email": "Praveenkumar@gmail.com"
+            },
+            {
+              "index": 8,
+              "value": true,
+              "booked": true,
+              "name": "suriya",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 8925347231,
+              "email": "Praveenkumar@gmail.com"
+            },
+            {
+              "index": 21,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "22",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 22,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 23,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 24,
+              "value": true,
+              "booked": true,
+              "name": "pranav",
+              "age": "17",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            }
+          ],
+          "id": 1
+        },
+        "Seats": [
+          {
+            "index": 21,
+            "value": true,
+            "booked": true,
+            "name": "Praveen Kumar",
+            "age": "22",
+            "gender": "Male",
+            "phoneNumber": 9080756620,
+            "email": "partha11@gmail.com"
+          },
+          {
+            "index": 22,
+            "value": true,
+            "booked": true,
+            "name": "Praveen Kumar",
+            "age": "21",
+            "gender": "Male",
+            "phoneNumber": 9080756620,
+            "email": "partha11@gmail.com"
+          }
+        ]
+      },
+      "tqe3r": {
+        "uid": 1002,
+        "busDetails": {
+          "Bus_Number": 1,
+          "Travels_Name": "City Travels",
+          "Source": "Chennai",
+          "Destination": "Coimbatore",
+          "Date": "2023-06-29",
+          "amount": 500,
+          "status": true,
+          "Seats": [
+            {
+              "index": 3,
+              "value": true,
+              "booked": true,
+              "name": "Siva Ganesh",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 4,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "11",
+              "gender": "Male",
+              "phoneNumber": 1234567890,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 5,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 6,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 7,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": "22",
+              "gender": "Male",
+              "phoneNumber": 8925347231,
+              "email": "Praveenkumar@gmail.com"
+            },
+            {
+              "index": 8,
+              "value": true,
+              "booked": true,
+              "name": "suriya",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 8925347231,
+              "email": "Praveenkumar@gmail.com"
+            },
+            {
+              "index": 21,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "22",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 22,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 23,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 24,
+              "value": true,
+              "booked": true,
+              "name": "pranav",
+              "age": "17",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            }
+          ],
+          "id": 1
+        },
+        "Seats": [
+          {
+            "index": 23,
+            "value": true,
+            "booked": true,
+            "name": "parthasarathy  E",
+            "age": "21",
+            "gender": "Male",
+            "phoneNumber": 9080756620,
+            "email": "partha11@gmail.com"
+          },
+          {
+            "index": 24,
+            "value": true,
+            "booked": true,
+            "name": "pranav",
+            "age": "17",
+            "gender": "Male",
+            "phoneNumber": 9080756620,
+            "email": "partha11@gmail.com"
+          }
+        ]
+      },
+      "c1nh6": {
+        "uid": 1001,
+        "busDetails": {
+          "Bus_Number": 1,
+          "Travels_Name": "City Travels",
+          "Source": "Chennai",
+          "Destination": "Coimbatore",
+          "Date": "2023-06-29",
+          "amount": 500,
+          "status": true,
+          "Seats": [
+            {
+              "index": 3,
+              "value": true,
+              "booked": true,
+              "name": "Siva Ganesh",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 4,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "11",
+              "gender": "Male",
+              "phoneNumber": 1234567890,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 5,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 6,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 123213,
+              "email": "sdgdgd@"
+            },
+            {
+              "index": 7,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": "22",
+              "gender": "Male",
+              "phoneNumber": 8925347231,
+              "email": "Praveenkumar@gmail.com"
+            },
+            {
+              "index": 8,
+              "value": true,
+              "booked": true,
+              "name": "suriya",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 8925347231,
+              "email": "Praveenkumar@gmail.com"
+            },
+            {
+              "index": 21,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "22",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 22,
+              "value": true,
+              "booked": true,
+              "name": "Praveen Kumar",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 23,
+              "value": true,
+              "booked": true,
+              "name": "parthasarathy  E",
+              "age": "21",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 24,
+              "value": true,
+              "booked": true,
+              "name": "pranav",
+              "age": "17",
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            }
+          ],
+          "id": 1
+        },
+        "Seats": [
+          {
+            "index": 4,
+            "value": true,
+            "booked": true,
+            "name": "parthasarathy  E",
+            "age": "11",
+            "gender": "Male",
+            "phoneNumber": 1234567890,
+            "email": "partha11@gmail.com"
+          }
+        ]
+      }
+    }
+  ]
+}

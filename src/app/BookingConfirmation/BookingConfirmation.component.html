@@ -1,0 +1,147 @@
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <div class="nav-items">
+    <a (click)="go_To('/home')">Home</a>
+    <a (click)="go_To('/aboutus')">About us</a>
+    <a (click)="go_To('/contactus')">Contact</a>
+    <a (click)="go_To('/selectlocation')">Search Buses</a>
+    <a (click)="go_To('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
+    <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a>
+    <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+  </div>
+</nav>
+<br>
+<!-- <div class="input_box">
+  Bus Number
+  <input readonly [(ngModel)]="SelectedDetail.Bus_Number" >
+</div>
+<div class="input_box">
+  Travels Name
+  <input readonly [value]="SelectedDetail.Travels_Name" >
+</div>
+<div class="input_box">
+  Source
+  <input readonly [value]="SelectedDetail.Source" >
+</div>
+<div class="input_box">
+  Destination
+  <input readonly [value]="SelectedDetail.Destination" >
+</div>
+<div class="input_box">
+  Date
+  <input readonly [value]="SelectedDetail.Date" >
+</div> -->
+<body >
+<div class="wrapper">
+  <form action="" method="post">
+      <!--Account Information Start-->
+
+      <div class="input_group">
+        <h4>Bus Number</h4>
+        <div class="input_box">
+            <input  type="number" readonly [value]="SelectedDetail.Bus_Number" class="name" >
+            <i class="fa fa-list-ol icon"></i>
+        </div>
+   <br>
+      <h4>Travels Name</h4>
+      <div class="input_box">
+          <input type="text"  readonly [value]="SelectedDetail.Travels_Name" class="name" >
+          <i class="fa fa-bus icon"></i>
+      </div>
+      <h4>Date</h4>
+  <div class="input_box">
+      <input type="date" readonly [value]="SelectedDetail.Date" class="name" >
+      <i class="fa fa-calendar icon"></i>
+  </div>
+  </div>
+  <div class="input_group">
+    <h4>Source</h4>
+    <div class="input_box">
+        <input type="text"  readonly [value]="SelectedDetail.Source" class="name" >
+        <i class="fa fa-map-marker icon"></i>
+    </div>
+  <h4>Destination</h4>
+  <div class="input_box">
+      <input  type="text" readonly [value]="SelectedDetail.Destination" class="name" >
+      <i class="fa fa-map-marker icon"></i>
+  </div>
+</div>
+      <div class="input_group">
+        <h4> Mobile Number </h4>
+          <div class="input_box">
+        <input type="number" placeholder=" Phone Number" required [(ngModel)]="SelectedDetail.phoneNumber" [ngModelOptions]="{standalone: true}"  class="name" >
+        <i class="fa fa-phone icon" aria-hidden="true"></i>
+    </div>
+      <h4> Email</h4>
+    <div class="input_box">
+      <input type="email" placeholder=" Email" required [(ngModel)]="SelectedDetail.email" [ngModelOptions]="{standalone: true}" class="name" >
+      <i class="fa fa-envelope icon" aria-hidden="true"></i>
+  </div>
+</div>
+  </form>
+</div>
+<br>
+<br>
+<table mat-table [dataSource]="SeatDetail"  class="mat-elevation-z8">
+  <ng-container matColumnDef="seatnumber">
+    <th  *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.index }}</td>
+    <td mat-footer-cell *matFooterCellDef>  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="passengername">
+    <th  *matHeaderCellDef>Passenger Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    <td mat-footer-cell *matFooterCellDef>  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="age">
+    <th  *matHeaderCellDef>Age</th>
+    <td mat-cell *matCellDef="let element">{{ element.age }}</td>
+    <td mat-footer-cell *matFooterCellDef>  </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th  *matHeaderCellDef>Gender</th>
+    <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+    <td mat-footer-cell *matFooterCellDef> Total </td>
+  </ng-container>
+
+   <ng-container matColumnDef="Amount">
+    <th  *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">{{ SelectedDetail.amount }}</td>
+    <td mat-footer-cell *matFooterCellDef> {{ SelectedDetail.totalAmount }} </td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="Source">
+    <th  *matHeaderCellDef>Source</th>
+    <td mat-cell *matCellDef="let element">{{ element.Source }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Destination">
+    <th  *matHeaderCellDef>Destination</th>
+    <td mat-cell *matCellDef="let element">{{ element.Destination }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Date">
+    <th  *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.Date }}</td>
+  </ng-container> -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+</table>
+<button mat-raised-button
+matTooltip="Info about the action"
+  aria-label="Button that displays a tooltip when focused or hovered over"
+  (click)="checkAndNavigate()"
+  [disabled]="isBtnDisabled()"
+>
+  Make Payment
+</button>
+
+</body>

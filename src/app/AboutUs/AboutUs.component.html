@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>payment success</title>
+<style>
+
+</style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <img src="assets/image/C i t y.png" width="110" height="100"/>
+    <div class="nav-items">
+      <a (click)="goTo('/home')">Home</a>
+      <a (click)="goTo('/aboutus')">About us</a>
+      <a (click)="goTo('/contactus')">Contact</a>
+      <a (click)="goTo('/selectlocation')">Search Buses</a>
+      <a (click)="goTo('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
+      <a (click)="goTo('/login')" *ngIf="!isLogedIn">Login</a>
+      <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+    </div>
+  </nav>
+	<div class="section">
+		<div class="container">
+			<div class="content-section">
+				<div class="title">
+					<h1>About Us</h1>
+				</div>
+				<div class="content">
+					<h3>Welcome to our online bus booking system!</h3>
+					<br>
+					<p>We are a team of dedicated professionals who are passionate
+						about making bus travel easy and hassle-free for everyone. Our aim
+						is to provide a convenient and reliable platform for travelers to
+						book bus tickets online, from the comfort of their homes or
+						offices. With our user-friendly interface and secure payment
+						gateway, you can easily browse through the available bus routes,
+						timings, and fares, and book your tickets with just a few clicks.
+						We partner with a wide network of bus operators to offer you a
+						wide range of options to choose from, whether you're traveling for
+						business or leisure. At our online bus booking system, we are
+						committed to delivering exceptional customer service and ensuring
+						that your travel experience is smooth and comfortable. Our 24/7
+						customer support team is always available to assist you with any
+						queries or issues that you may have.
+					<p>
+						<br>
+					<p>Thank you for choosing our online bus booking system, and we
+						look forward to serving you on your next bus journey.</p>
+				</div>
+			</div>
+			<div class="image-section">
+				<img src="assets/image/About us page (1).gif">
+				<div class="button">
+					<a href="Welcome.jsp">Back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

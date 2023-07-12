@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Travels  </title></head>
+<body>
+  <nav class="nav-bar">
+    <img src="assets/image/C i t y.png" width="110" height="100"/>
+    <div class="nav-items">
+      <a (click)="goTo('/home')">Home</a>
+      <a (click)="goTo('/aboutus')">About us</a>
+      <a (click)="goTo('/contactus')">Contact</a>
+      <a (click)="goTo('/selectlocation')">Search Buses</a>
+      <a (click)="goTo('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
+      <a (click)="goTo('/login')" *ngIf="!isLogedIn">Login</a>
+      <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+    </div>
+  </nav>
+  <div class="example-container" *ngIf="isDisplayed">
+    <mat-card>
+      <mat-card-content>
+        <span> Buses are the perfect way to travel. They’re cheap, they’re convenient, and they go everywhere.<br>
+          <br>
+          There is something about bus travel that strips away all of the veneers of modern life. It’s raw and real, and you are reminded of what’s important.</span>
+        <br>
+        <br>
+       <span >{{display}}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <header class="hero-section">
+    <div class="hero-text-container">
+      <h1>City Travels<br /></h1>
+       <h3> Book Your Bus Tickets & Wander Around !</h3>
+      <p>Bus travel is a chance to sit back, relax, and watch the world go by.<br>
+         It's a chance to disconnect from the distractions of everyday life and to connect with your surroundings.</p>
+    </div>
+    <div class="hero-img-container">
+      <img src="assets/image/Bus driver.gif" alt="" />
+    </div>
+  </header>
+  <section class="content">
+  </section>
+  <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Quick links</h4>
+              <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/aboutus">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <li><a href="/login">Login</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">About city travels</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">payment options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>buses</h4>
+              <ul>
+                <li><a href="#">Upper Class</a></li>
+                <li><a href="#">Lower Class</a></li>
+                <li><a href="#">Sleeper Coach </a></li>
+                <li><a href="#">Semi-Sleeper Coach</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Whats App</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>
+</body>
+</html>

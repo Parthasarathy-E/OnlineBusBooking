@@ -1,0 +1,59 @@
+<!-- new-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Login</title>
+
+</head>
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+  <div class="nav-items">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/aboutus">Aboutus</a>
+    <a href="/contactus">Contact</a>
+  </div>
+  <button><b routerLink="/selectlocation">Back</b></button>
+</nav>
+<body>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="container">
+        <img src="assets/image/Login-amico.png">
+
+        <div class="login">
+            <h3 class="title">User Login</h3>
+            <!-- <mat-form-field>
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="pat@example.com" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field> -->
+            <div class="text-input">
+              <i class="fa-solid fa-envelope"></i>
+              <mat-form-field style=" margin-top: 17px;">
+                <input matInput type="email" formControlName="email"  name="email" placeholder="email" required >
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field> <br><br>
+            </div>
+            <!-- <span style="color: red;"  class ="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" >*Email Id is required</span> -->
+            <div class="text-input">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password"  name="password" formControlName="password" placeholder="Password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"
+                title="Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters" required><br>
+                </div>
+                <span style="color: red;" class ="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password  is required</span>
+            <button class="login-btn" >LOGIN</button>
+            <a href="#" class="forgot">Forgot Username/Password?</a>
+            <div class="create">
+                <a (click)="signUpUser()"><p>New User ?<b> SignUp</b></p></a>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+
+
+</html>

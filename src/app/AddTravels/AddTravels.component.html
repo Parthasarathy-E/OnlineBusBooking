@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <h2>Travels Details</h2>
+  <form action="" method="post">
+      <!--Account Information Start-->
+
+      <div class="input_group">
+        <h4>Bus Number</h4>
+        <div class="input_box">
+          <!-- [value]="SelectedDetail.Bus_Number -->
+            <input  type="number"  class="name" [(ngModel)]="busData.Bus_Number" [ngModelOptions]="{standalone: true}">
+            <i class="fa fa-list-ol icon"></i>
+        </div>
+        </div>
+        <div class="input_group">
+   <br>
+      <h4>Travels Name</h4>
+      <div class="input_box">
+         <!-- [value]="SelectedDetail.Travels_Name" -->
+          <input type="text"   class="name" [(ngModel)]="busData.Travels_Name" [ngModelOptions]="{standalone: true}">
+          <i class="fa fa-bus icon"></i>
+      </div>
+      </div>
+      <div class="input_group">
+      <h4>Date</h4>
+  <div class="input_box">
+    <!-- [value]="SelectedDetail.Date"  -->
+      <input type="date" class="name" [(ngModel)]="busData.Date" [ngModelOptions]="{standalone: true}">
+      <i class="fa fa-calendar icon"></i>
+  </div>
+  </div>
+  <div class="input_group">
+    <h4>Source</h4>
+    <div class="input_box">
+      <!-- [value]="SelectedDetail.Source" -->
+        <input type="text"    class="name" [(ngModel)]="busData.Source" [ngModelOptions]="{standalone: true}">
+        <i class="fa fa-map-marker icon"></i>
+    </div>
+    </div>
+    <div class="input_group">
+  <h4>Destination</h4>
+  <div class="input_box">
+    <!-- [value]="SelectedDetail.Destination" -->
+      <input  type="text"   class="name" [(ngModel)]="busData.Destination" [ngModelOptions]="{standalone: true}">
+      <i class="fa fa-map-marker icon"></i>
+  </div>
+</div>
+<div class="input_group">
+  <h4>Amount</h4>
+<div class="input_box">
+  <input type="number" required class="name" [(ngModel)]="busData.amount" [ngModelOptions]="{standalone: true}">
+  <i class="fa fa-inr icon" aria-hidden="true"></i>
+</div>
+</div>
+  </form>
+  <button (click)="addOrUpdateTravels()">{{ isEdit ? 'Update' : 'Add Travels' }}</button>
+</div>

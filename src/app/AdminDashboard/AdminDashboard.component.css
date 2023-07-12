@@ -1,0 +1,106 @@
+*{
+	margin:0;
+	padding:0;
+	font-family: arial;
+	box-Sizing: border-box;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color:#ffffff;
+}
+.nav-items a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(49, 101, 197);
+  margin-left: 70px;
+}
+.nav-items a:hover{
+  color: rgba(5, 5, 82, 0.945);
+}
+.nav-bar button {
+  padding: 12px 28px;
+  border: none;
+  font-size:18px;
+  outline-width: 0;
+  color: rgba(5, 5, 82, 0.945);
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  background:white;
+}
+.nav-bar button:hover{
+  background-color:rgba(5, 5, 82, 0.945);
+  color: floralwhite;
+}
+body{
+padding:10px;
+  height: 40vh;
+  display: grid;
+  place-items: center;
+ background: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3798.jpg?w=740&t=st=1674757570~exp=1674758170~hmac=457e5d87c6e2421bef0d3e5144c97f5043d33ec9e7908c5b6fb10ba54f248d35') no-repeat;
+ background-size: cover;
+  background-size: 100% ;
+}
+table{
+  padding:  10px;
+	width:1200px;
+	box-shadow:-1px 12px 12px -6px rgba(0,0,0,0.5);
+}
+
+body h1{
+padding:20px ;
+}
+table,td,th{
+	padding:10px;
+	border: 1px solid lightblue;
+	border-collapse: collapse;
+	text-align: center;
+	cursor:pointer;
+}
+td{
+	font-size: 23px;
+}
+th{
+ font-size:25px;
+	background-color: blue;
+	color: white;
+}
+tr:nth-child(odd){
+	background-color:ligthblue;
+}
+tr:nth-child(odd):hover{
+	background-color: dodgerdlue;
+	color: blue;
+	transform: scale(1.0);
+	transform:transform 300ms ease-in;
+}
+tr:nth-child(even){
+	background-color:#ededed;
+}
+tr:nth-child(even):hover{
+	background-color: dodgergray;
+	color: blue;
+	transform: scale(1.0);
+	transform:transform 200ms ease-in;
+	}
+   button{
+    padding:10px 20px;
+      text-align:center;
+      font-size:20px;
+      background-color:#ccc;
+      color:blue;
+      border-radius:10px;
+      text-decoration:none;
+      outline:none;
+      border:none;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+     button:hover{
+     background-color:blue;
+      color:#ccc;
+    }

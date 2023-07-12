@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Login</title>
+
+</head>
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+  <div class="nav-items">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/">Aboutus</a>
+    <a href="/contactus">Contact</a>
+    <a href="/search">Contact</a>
+  </div>
+  <button><b routerLink="/home">Back</b></button>
+</nav>
+<body>
+  <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <div class="container">
+        <img src="assets/image/Computer login.gif">
+        <div class="login">
+            <h3 class="title">Signup</h3>
+
+            <div class="text-input">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" formControlName="name" name="name" placeholder="Full Name"  required pattern="[A-Za-z]{3,}" title="Must contain at least 3  or more characters " >
+                </div>
+                <span class ="text-danger" *ngIf="signupForm.controls['name'].dirty && signupForm.hasError('required','name')" >*Full name is required</span>
+            <div class="text-input">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" formControlName="email" name="email" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Format:BusBooking@gmail.com" required>
+          </div>
+          <span class ="text-danger" *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required','email')" >*Email Id is required</span>
+          <div class="text-input">
+            <i class="fa-solid fa-phone"></i>
+            <input type="number" formControlName="mobilenumber"  name="mobilenumber" placeholder="Mobile Number" pattern="[0-9]{5}[0-9]{5}" title="Must contain 10 digit Number" required>
+          </div>
+          <span class ="text-danger" *ngIf="signupForm.controls['mobilenumber'].dirty && signupForm.hasError('required','mobilenumber')" >*Mobile Number is required</span>
+            <div class="text-input">
+              <i class="fa-solid fa-lock"></i>
+                <input type="password" formControlName="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"
+                title="Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters" required>
+            </div>
+            <span class ="text-danger" *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">*Password  is required</span>
+            <div class="text-input">
+              <i class="fa-sharp fa-solid fa-lock"></i>
+              <input type="password" formControlName="Confirmpassword" name="Confirmpassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"
+              title="Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters" required>
+          </div>
+          <span class ="text-danger" *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">* Confirm Password  is required</span>
+            <button class="login-btn">SignUp</button>
+            <div class="create">
+                <a routerLink="/login">Already a Member ?<b>Login</b></a>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+
+</html>
