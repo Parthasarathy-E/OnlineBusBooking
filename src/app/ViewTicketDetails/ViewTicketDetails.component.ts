@@ -30,7 +30,7 @@ element: any;
     });
   }
   checkCancelDate(){
-    return new Date(this.ticketInfo.busDetails.Date) >= new Date(new Date().setHours(0,0,0));
+    return new Date(this.ticketInfo.busDetails.Date) <= new Date(new Date().setHours(0,0,0));
   }
   cancelTicket(){
     let seatNo = this.ticketInfo.Seats.map((a:any)=> a.index);
@@ -45,7 +45,7 @@ element: any;
     this.http.get<any>("http://localhost:3000/bookedSeats/1").subscribe(res1=>{
       let payload = {...res1, [this.tid]: this.ticketInfo};
       this.http.patch<any>("http://localhost:3000/bookedSeats/1", payload).subscribe(res=>{
-        alert('<--TEXT-->');
+        alert('Your Ticket has been Canceled Successfully...!');
       });
     });
     this.goBack();

@@ -17,9 +17,9 @@
       <a routerLink="/home">Home</a>
       <a routerLink="/aboutus">Aboutus</a>
       <a href="/contactus">Contact</a>
-    </div>
-    <button><a href="/seatselecteduserdetails">Back</a></button>
-  </nav>
+      <a routerLink="/bookingconfirmation">back</a>
+
+    </div>  </nav>
     <div class="wrapper">
         <h2>Payment Form</h2>
         <form [formGroup]="paymentForm" method="post">
@@ -34,7 +34,7 @@
                     <h4>Payment Details</h4>
                     <input type="radio" name="pay" class="radio" id="bc1" checked>
                     <label for="bc1"><span>
-                            <i class="fa fa-cc-visa"></i>Credit Card</span></label>
+                       <i class="fa fa-cc-visa"></i>Credit Card</span></label>
                     <!-- <input type="radio" name="pay" class="radio" id="bc2">
                     <label for="bc2"><span>
                             <i class="fa fa-cc-paypal"></i>Paypal</span></label> -->

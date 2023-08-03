@@ -38,9 +38,9 @@
           <span class ="text-danger" *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required','email')" >*Email Id is required</span>
           <div class="text-input">
             <i class="fa-solid fa-phone"></i>
-            <input type="number" formControlName="mobilenumber"  name="mobilenumber" placeholder="Mobile Number" pattern="[0-9]{5}[0-9]{5}" title="Must contain 10 digit Number" required>
+            <input type="number" formControlName="mobileNumber"  name="mobileNumber" placeholder="Mobile Number" pattern="[0-9]{5}[0-9]{5}" title="Must contain 10 digit Number" required>
           </div>
-          <span class ="text-danger" *ngIf="signupForm.controls['mobilenumber'].dirty && signupForm.hasError('required','mobilenumber')" >*Mobile Number is required</span>
+          <span class ="text-danger" *ngIf="signupForm.controls['mobileNumber'].dirty && signupForm.hasError('required','mobileNumber')" >*Mobile Number is required</span>
             <div class="text-input">
               <i class="fa-solid fa-lock"></i>
                 <input type="password" formControlName="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"

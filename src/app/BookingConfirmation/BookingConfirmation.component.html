@@ -8,7 +8,7 @@
     <a (click)="go_To('/selectlocation')">Search Buses</a>
     <a (click)="go_To('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
     <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a>
-    <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+    <a (click)="logOut()" *ngIf="isLogedIn">Logout</a>
   </div>
 </nav>
 <br>
@@ -81,8 +81,6 @@
 </div>
   </form>
 </div>
-<br>
-<br>
 <table mat-table [dataSource]="SeatDetail"  class="mat-elevation-z8">
   <ng-container matColumnDef="seatnumber">
     <th  *matHeaderCellDef>No.</th>
@@ -139,7 +137,7 @@
 matTooltip="Info about the action"
   aria-label="Button that displays a tooltip when focused or hovered over"
   (click)="checkAndNavigate()"
-  [disabled]="isBtnDisabled()"
+  [disabled]="isButtonDisabled()"
 >
   Make Payment
 </button>

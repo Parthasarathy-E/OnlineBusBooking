@@ -6,7 +6,7 @@ import { FormsModule} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
-
+import { FormBuilder,FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-BookingConfirmation',
   templateUrl: './BookingConfirmation.component.html',
@@ -28,8 +28,8 @@ export class BookingConfirmationComponent implements OnInit {
   ];
   isLogedIn: Boolean = false
   constructor(private http:HttpClient , private router:Router) { }
-
   ngOnInit() {
+
     this.http.get<any>("http://localhost:3000/selectedBus/1")
    .subscribe(res=>{
     this.SelectedDetail =  Object.assign(res, {
@@ -60,7 +60,7 @@ console.log(res)
  go_To(toPath: any){  //
   this.router.navigate([toPath]) //
 } //
-logout(){ //
+logOut(){ //
   this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
     alert('Logout Successfully');
     setTimeout(() => {
@@ -68,14 +68,12 @@ logout(){ //
     },2000);
   });
 }
-
-isBtnDisabled(){
+isButtonDisabled(){
   let regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
   let disabled = this.SelectedDetail.phoneNumber == "" || this.SelectedDetail.phoneNumber == null ||
   this.SelectedDetail.email == "" || this.SelectedDetail.email == null || !regex.test(this.SelectedDetail.email);
   return disabled;
 }
-
 
 }
 

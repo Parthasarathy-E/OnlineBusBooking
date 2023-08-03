@@ -6,8 +6,8 @@
   <a (click)="go_To('/contactus')">Contact</a>
   <a (click)="go_To('/selectlocation')">Search Buses</a>
   <a (click)="go_To('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
-  <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a>
-  <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+  <!-- <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a> -->
+  <a (click)="logOut()" *ngIf="isLogedIn">Logout</a>
 </div>
 </nav>
   <body>
@@ -116,7 +116,7 @@
 </div> -->
 </div>
 <div class="button">
-  <button [disabled]="searchBtnDisabled()" color="primary" style="margin-top:20%; padding: 10px 20px;" (click)="goTo()">Search Buses</button>
+  <button [disabled]="searchButtonDisabled()" color="primary" style="margin-top:20%; padding: 10px 20px;" (click)="goTo()">Search Buses</button>
 </div>
 </div>
 </body>

@@ -19,7 +19,7 @@ export class AboutUsComponent implements OnInit {
   goTo(toPath: any){  //
     this.router.navigate([toPath]) //
   } //
-  logout(){ //
+  logOut(){ //
     this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
       alert('Logout Successfully');
       setTimeout(() => {

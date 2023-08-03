@@ -33,7 +33,7 @@ export class AdminDashboardComponent implements OnInit {
   ];
   BUS_DATA: any;
   dataSource: any;
-  
+
   constructor(private http: HttpClient, private router: Router,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,) {
     iconRegistry.addSvgIcon('download', sanitizer.bypassSecurityTrustResourceUrl('https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg'));
     iconRegistry.addSvgIcon('active', sanitizer.bypassSecurityTrustResourceUrl('https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/check_circle/default/48px.svg'));

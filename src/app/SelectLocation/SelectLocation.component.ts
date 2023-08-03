@@ -40,7 +40,7 @@ export class SelectLocationComponent implements OnInit {
     //   selectedDate: ['', [Validators.required, this.validateDateRange.bind(this)]]
     // });
   }
-  searchBtnDisabled(){
+  searchButtonDisabled(){
     let disabled = this.sourceLocation == "" || this.sourceLocation == null ||
     this.destinationLocation == "" || this.destinationLocation == null ||
     this.dateSelected == "" || this.dateSelected == null;
@@ -50,8 +50,8 @@ export class SelectLocationComponent implements OnInit {
     this.router.navigate([
       '/selectbus',
       {
-        sourceLoc: this.sourceLocation,
-        destinationLoc: this.destinationLocation,
+        sourceLocation: this.sourceLocation,
+        destinationLocation: this.destinationLocation,
         dateSelected: this.dateSelected,
       },
     ]);
@@ -59,7 +59,7 @@ export class SelectLocationComponent implements OnInit {
   go_To(toPath: any){  //
     this.router.navigate([toPath]) //
   } //
-  logout(){ //
+  logOut(){ //
     this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
       alert('Logout Successfully');
       setTimeout(() => {

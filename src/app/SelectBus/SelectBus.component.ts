@@ -24,23 +24,23 @@ export class SelectBusComponent implements OnInit {
     'BookBtn',
   ];
 
-  sourceLoc: string | null | undefined;
-  destinationLoc: string | null | undefined;     
+  sourceLocation: string | null | undefined;
+  destinationLocation: string | null | undefined;
   dateSelected: string | null | undefined;
 
   constructor(private route: ActivatedRoute,private router: Router, private http : HttpClient) {}
 
   ngOnInit() {
-    this.sourceLoc = this.route.snapshot.paramMap.get('sourceLoc');
-    this.destinationLoc = this.route.snapshot.paramMap.get('destinationLoc');
+    this.sourceLocation = this.route.snapshot.paramMap.get('sourceLocation');
+    this.destinationLocation = this.route.snapshot.paramMap.get('destinationLocation');
     this.dateSelected = this.route.snapshot.paramMap.get('dateSelected');
     this.http.delete<any>("http://localhost:3000/selectedBus/1").subscribe(res => console.log(res))
     this.http.get<any>("http://localhost:3000/BusList")
    .subscribe(res=>{
     this.filteredBusList = res.filter(
       (a: any) =>
-        a.Source?.toLowerCase() == this.sourceLoc?.toLowerCase() &&
-        a.Destination?.toLowerCase() == this.destinationLoc?.toLowerCase() && a.Date == this.dateSelected && a.status
+        a.Source?.toLowerCase() == this.sourceLocation?.toLowerCase() &&
+        a.Destination?.toLowerCase() == this.destinationLocation?.toLowerCase() && a.Date == this.dateSelected && a.status
     );
     this.http.get('http://localhost:3000/userDetails/1').subscribe(res => { //
       this.isLogedIn = res.hasOwnProperty('uid');   //
@@ -56,7 +56,7 @@ export class SelectBusComponent implements OnInit {
   goTo(toPath: any){  //
     this.router.navigate([toPath]) //
   } //
-  logout(){ //
+  logOut(){ //
     this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
       alert('Logout Successfully');
       setTimeout(() => {

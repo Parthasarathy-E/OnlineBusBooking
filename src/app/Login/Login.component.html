@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>Login</title>
-
 </head>
 <nav class="nav-bar">
   <img src="assets/image/C i t y.png" width="110" height="100"/>
@@ -33,10 +32,8 @@
             </mat-form-field> -->
             <div class="text-input">
               <i class="fa-solid fa-envelope"></i>
-              <mat-form-field style=" margin-top: 17px;">
-                <input matInput type="email" formControlName="email"  name="email" placeholder="email" required >
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field> <br><br>
+                <input  type="email" formControlName="email"  name="email" placeholder="email" required >
+            <br><br>
             </div>
             <!-- <span style="color: red;"  class ="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" >*Email Id is required</span> -->
             <div class="text-input">
