@@ -31,13 +31,16 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentForm = this.formBuilder.group({
-      name: ['', Validators.required, Validators.pattern],
-      cardNumber: ['',[Validators.required, Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}')],
+      name: ['', Validators.required, Validators.pattern('[a-zA-Z ]*')],
+      cardNumber: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}')],
       ],
       expiryMonth: ['', [Validators.required, Validators.pattern('[1-9]{2}')]],
       expiryYear: ['', [Validators.required, Validators.pattern('[0-9]{4}')]],
       CVV: ['', [Validators.required, Validators.pattern('[0-9]{3}')]],
     });
+
     this.http
       .get<any>('http://localhost:3000/selectedBus/1')
       .subscribe((res) => {
