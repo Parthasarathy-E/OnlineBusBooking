@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, Validators} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
@@ -27,9 +27,13 @@ export class BookingConfirmationComponent implements OnInit {
     'Amount'
   ];
   isLogedIn: Boolean = false
-  constructor(private http:HttpClient , private router:Router) { }
+  bookedSeats: any;
+  constructor(private formBuilder :FormBuilder,private http:HttpClient , private router:Router) { }
   ngOnInit() {
-
+    this.bookedSeats =this.formBuilder.group({
+      phoneNumber:['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')]],
+      email:['',[Validators.required,Validators.pattern('(?=.\d)(?=.[a-z])(?=.*[A-Z]).{3,}')]]
+    })
     this.http.get<any>("http://localhost:3000/selectedBus/1")
    .subscribe(res=>{
     this.SelectedDetail =  Object.assign(res, {

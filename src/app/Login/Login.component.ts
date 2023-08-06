@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() :void {
     this.loginForm =this.formBuilder.group({
-      email:['',Validators.required],
-      password:['',Validators.required]
+      email:['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')]],
+      password:['',[Validators.required,Validators.pattern('(?=.\d)(?=.[a-z])(?=.*[A-Z]).{3,}')]]
     })
   }
  login(){
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       this.http.patch<any>("http://localhost:3000/userDetails/1", Object.assign(user, {id: 1})).subscribe(res => console.log(res))
       this.loginForm.reset();
       this.location.back();
-      // this.router.navigate(['/selectlocation'])
+       this.router.navigate(['/home'])
     }
     else {
       alert("user not found");

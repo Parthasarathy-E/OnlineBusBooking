@@ -102,6 +102,14 @@
       "password": "sankar@123",
       "confirmPassword": "",
       "id": 11
+    },
+    {
+      "name": "sankar",
+      "email": "sankar@gmail.com",
+      "mobileNumber": 8270136721,
+      "password": "sankar@123",
+      "confirmPassword": "",
+      "id": 12
     }
   ],
   "BusList": [
@@ -335,12 +343,22 @@
       "Destination": "Chennai",
       "Seats": [
         {
-          "index": 14,
+          "index": 2,
           "value": true,
           "booked": false,
+          "name": "parthasarathy  E",
+          "age": 21,
+          "gender": "Male"
+        },
+        {
+          "index": 14,
+          "value": true,
+          "booked": true,
           "name": "pranav",
           "age": 17,
-          "gender": "Male"
+          "gender": "Male",
+          "phoneNumber": 7092648001,
+          "email": "siva@gmail.com"
         },
         {
           "index": 17,
@@ -387,15 +405,18 @@
       "Travels_Name": "Abi Travels",
       "amount": 600,
       "status": true,
-      "id": 1,
-      "totalAmount": 600,
-      "phoneNumber": 7092648001,
-      "email": "siva@gmail.com"
+      "id": 1
     }
   ],
   "userDetails": [
     {
-      "id": 1
+      "id": 1,
+      "name": "parthasarathy ",
+      "email": "partha11@gmail.com",
+      "mobileNumber": 9080756620,
+      "password": "partha@123",
+      "confirmPassword": "",
+      "uid": 1001
     }
   ],
   "bookedSeats": [
