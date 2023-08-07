@@ -14,48 +14,44 @@ import { HttpClient } from '@angular/common/http';
 export class SelectSeatComponent implements OnInit {
   seats: Array<{ index: number; value: boolean; booked: false }> = [];
   SelectedBus!: any;
-  isLogedIn: Boolean = false //
-  constructor(private route: ActivatedRoute, private router: Router,  private http : HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     // let qureyStr = this.route.snapshot.paramMap.get('selectedBus');
-    this.http.get<any>("http://localhost:3000/selectedBus/1")
-   .subscribe(res=>{
-    this.SelectedBus =  res;
-    for (let i = 1; i < 41; i++) {
-      let index = this.SelectedBus.Seats.findIndex((a:any) => a.index == i)
-      if(index != -1){
-        this.seats.push(this.SelectedBus.Seats[index]);
-        continue;
-      }
-      this.seats.push({ index: i, value: false, booked: false });
-    }
-   });
-   this.http.get('http://localhost:3000/userDetails/1').subscribe(res => { //
-      this.isLogedIn = res.hasOwnProperty('uid');   //
-    });  //
-
+    this.http
+      .get<any>('http://localhost:3000/selectedBus/1')
+      .subscribe((res) => {
+        this.SelectedBus = res;
+        for (let i = 1; i < 41; i++) {
+          let index = this.SelectedBus.Seats.findIndex(
+            (a: any) => a.index == i
+          );
+          if (index != -1) {
+            this.seats.push(this.SelectedBus.Seats[index]);
+            continue;
+          }
+          this.seats.push({ index: i, value: false, booked: false });
+        }
+      });
   }
   selectSeat(seat: any) {
     seat.value = !seat.value;
   }
   bookBus() {
-    this.http.patch<any>("http://localhost:3000/selectedBus/1", Object.assign(this.SelectedBus, {Seats: this.seats.filter((a) => a.value)})).subscribe(res=>{
-console.log(res)
-  });
-    this.router.navigate([
-      '/seatselectedusersdetails',
-    ]);
-  }
-  goTo(toPath: any){  //
-    this.router.navigate([toPath]) //
-  } //
-  logOut(){ //
-    this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
-      alert('Logout Successfully');
-      setTimeout(() => {
-        this.goTo('/');
-      },2000);
-    });
+    this.http
+      .patch<any>(
+        'http://localhost:3000/selectedBus/1',
+        Object.assign(this.SelectedBus, {
+          Seats: this.seats.filter((a) => a.value),
+        })
+      )
+      .subscribe((res) => {
+        console.log(res);
+      });
+    this.router.navigate(['/seatselectedusersdetails']);
   }
 }
