@@ -61,12 +61,12 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.email,
       this.loginForm.value.password
     );
-    this.userAuth.signInStatus.subscribe((result) => {
+    this.userAuth.userSignInStatus.subscribe((result) => {
       console.warn(result);
       if (result) {
         this.loginForm.reset();
         this.location.back();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }
     });
   }

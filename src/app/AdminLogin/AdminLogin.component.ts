@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../user-auth.service';
 
 @Component({
   selector: 'app-AdminLogin',
@@ -15,7 +16,8 @@ export class AdminLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private userAuth: UserAuthService
   ) {}
 
   ngOnInit(): void {
@@ -25,27 +27,16 @@ export class AdminLoginComponent implements OnInit {
     });
   }
   login() {
-    this.http.get<any>('http://localhost:3000/adminUsers').subscribe(
-      (res) => {
-        console.log(res);
-        const user = res.find((a: any) => {
-          return (
-            a.email === this.adminloginForm.value.email &&
-            a.password === this.adminloginForm.value.password
-          );
-        });
-        if (user) {
-          localStorage.setItem('adminId', user.aid);
-          alert('Login Success');
-          this.adminloginForm.reset();
-          this.router.navigate(['/admindashboard']);
-        } else {
-          alert('Admin User not found');
-        }
-      },
-      (err) => {
-        ('Something went worng.!!');
-      }
+    this.userAuth.adminLogin(
+      this.adminloginForm.value.email,
+      this.adminloginForm.value.password
     );
+    this.userAuth.userSignInStatus.subscribe((result) => {
+      console.warn(result);
+      if (result) {
+        this.adminloginForm.reset();
+        this.router.navigate(['/admindashboard']);
+      }
+    });
   }
 }
