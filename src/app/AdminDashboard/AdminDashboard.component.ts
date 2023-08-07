@@ -82,17 +82,8 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigate(['/addtravels', { id: params }]);
   }
   toggleBusStatus(id: any, value: any) {
-    this.http
-      .get<any>('http://localhost:3000/BusList/' + id)
-      .subscribe((res) => {
-        res = Object.assign(res, { status: value });
-        this.http
-          .patch<any>('http://localhost:3000/BusList/' + id, res)
-          .subscribe((res1) => {
-            this.ngOnInit();
-            alert('Updated');
-          });
-      });
+    this.admin.toggleBusStatus(id, value);
+    this.ngOnInit();
   }
   download(element: any) {
     let seatData = element.Seats;
