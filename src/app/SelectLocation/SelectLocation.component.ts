@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { format } from 'date-fns';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-SelectLocation',
@@ -31,7 +32,7 @@ export class SelectLocationComponent implements OnInit {
   destinationLocation: any;
   dateSelected: any;
   public travelsForm!: FormGroup;
-
+  locations: Array<any> = environment.locations;
   toSelected: any;
   validateTimeRange: any;
   validateDateRange: any;
