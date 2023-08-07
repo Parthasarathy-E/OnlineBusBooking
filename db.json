@@ -344,14 +344,6 @@
       "Destination": "Chennai",
       "Seats": [
         {
-          "index": 2,
-          "value": true,
-          "booked": false,
-          "name": "parthasarathy  E",
-          "age": 21,
-          "gender": "Male"
-        },
-        {
           "index": 14,
           "value": true,
           "booked": true,
@@ -412,12 +404,11 @@
   "userDetails": [
     {
       "id": 1,
-      "name": "parthasarathy ",
-      "email": "partha11@gmail.com",
-      "mobileNumber": 9080756620,
-      "password": "partha@123",
-      "confirmPassword": "",
-      "uid": 1001
+      "name": "sankar",
+      "email": "sankar@gmail.com",
+      "mobileNumber": 8270136721,
+      "password": "sankar@123",
+      "confirmPassword": ""
     }
   ],
   "bookedSeats": [

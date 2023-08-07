@@ -8,15 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>Login</title>
 </head>
-<nav class="nav-bar">
-  <img src="assets/image/C i t y.png" width="110" height="100"/>
-  <div class="nav-items">
-    <a routerLink="/home">Home</a>
-    <a routerLink="/aboutus">Aboutus</a>
-    <a href="/contactus">Contact</a>
-  </div>
-  <button><b routerLink="/selectlocation">Back</b></button>
-</nav>
 <body>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="container">

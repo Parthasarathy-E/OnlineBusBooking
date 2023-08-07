@@ -1,16 +1,7 @@
 <nav class="nav-bar">
   <img src="assets/image/C i t y.png" width="110" height="100"/>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  <div class="nav-items">
-    <a (click)="go_To('/home')">Home</a>
-    <a (click)="go_To('/aboutus')">About us</a>
-    <a (click)="go_To('/contactus')">Contact</a>
-    <a (click)="go_To('/selectlocation')">Search Buses</a>
-    <a (click)="go_To('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
-    <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a>
-    <a (click)="logOut()" *ngIf="isLogedIn">Logout</a>
-  </div>
-</nav>
+  
 <br>
 <!-- <div class="input_box">
   Bus Number
