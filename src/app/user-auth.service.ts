@@ -24,16 +24,32 @@ export class UserAuthService {
           this.signInStatus.emit(false);
           alert('user not found');
         }
+      },
+      (err) => {
+        alert('Something went wrong');
       }
     );
   }
-  adminLogin(admin: any) {
-    this.patch('', admin).subscribe((res) => console.log(res));
+  userSignUp(user: any) {
+    this.post('/signupUsers', user).subscribe(
+      (result) => {
+        if (result) {
+          alert('Signup Successfull');
+          this.router.navigate(['/login']);
+        }
+      },
+      (err) => {
+        alert('Something went wrong');
+      }
+    );
   }
   patch(url: string, data: any) {
     return this.http.patch(this.URL + url, data);
   }
   get(url: string) {
     return this.http.get(this.URL + url);
+  }
+  post(url: string, data: any) {
+    return this.http.post(this.URL + url, data);
   }
 }
