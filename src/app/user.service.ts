@@ -14,7 +14,7 @@ export class UserService {
     return this.helper.patch('/selectedBus/1', data);
   }
   setSelectedBus(data: any) {
-    return this.helper.post('/selectedBus/1', data);
+    return this.helper.post('/selectedBus', data);
   }
   removeSelectedBus() {
     return this.helper.delete('/selectedBus/1');
