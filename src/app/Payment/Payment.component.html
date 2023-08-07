@@ -55,14 +55,15 @@
             <i class="fa fa-credit-card icon"> </i>
           </div>
         </div>
-        <div style="color: red;"
+        <div
+          style="color: red"
           *ngIf="
             (paymentForm.get('cardNumber')?.invalid &&
               paymentForm.controls['cardNumber'].dirty) ||
             paymentForm.get('cardNumber')?.touched
           "
         >
-          <div class="invalid-input" style="color: red;">
+          <div class="invalid-input" style="color: red">
             <div *ngIf="paymentForm.get('cardNumber')?.errors?.['required']">
               Card Number Required
             </div>
@@ -85,14 +86,15 @@
             <i class="fa fa-user icon"></i>
           </div>
         </div>
-        <div style="color: red;"
+        <div
+          style="color: red"
           *ngIf="
             (paymentForm.get('CVV')?.invalid &&
               paymentForm.controls['CVV'].dirty) ||
             paymentForm.get('CVV')?.touched
           "
         >
-          <div class="invalid-input" style="color: red;">
+          <div class="invalid-input" style="color: red">
             <div *ngIf="paymentForm.get('CVV')?.errors?.['required']">
               CVV Required
             </div>
@@ -117,14 +119,15 @@
             <i class="fa fa-calendar icon" aria-hidden="true"></i>
           </div>
         </div>
-        <div style="color: red;"
+        <div
+          style="color: red"
           *ngIf="
             (paymentForm.get('expiryMonth')?.invalid &&
               paymentForm.controls['expiryMonth'].dirty) ||
             paymentForm.get('expiryMonth')?.touched
           "
         >
-          <div class="invalid-input" style="color: red;">
+          <div class="invalid-input" style="color: red">
             <div *ngIf="paymentForm.get('expiryMonth')?.errors?.['required']">
               Expiry Month Required
             </div>
@@ -149,14 +152,15 @@
             <i class="fa fa-calendar-o icon" aria-hidden="true"></i>
           </div>
         </div>
-        <div style="color: red;"
+        <div
+          style="color: red"
           *ngIf="
             (paymentForm.get('expiryYear')?.invalid &&
               paymentForm.controls['expiryYear'].dirty) ||
             paymentForm.get('expiryYear')?.touched
           "
         >
-          <div class="invalid-input" style="color: red;">
+          <div class="invalid-input" style="color: red">
             <div *ngIf="paymentForm.get('expiryYear')?.errors?.['required']">
               Expiry Year Required
             </div>
@@ -180,14 +184,15 @@
             <i class="fa fa-user icon"></i>
           </div>
         </div>
-        <div style="color: red;"
+        <div
+          style="color: red"
           *ngIf="
             (paymentForm.get('name')?.invalid &&
               paymentForm.controls['name'].dirty) ||
             paymentForm.get('name')?.touched
           "
         >
-          <div class="invalid-input" style="color: red;">
+          <div class="invalid-input" style="color: red">
             <div *ngIf="paymentForm.get('name')?.errors?.['required']">
               Card Holder Name Required
             </div>
@@ -200,7 +205,7 @@
 
         <div class="input_group">
           <div class="input_box">
-            <button type="submit" (click)="goTo()">PAY NOW</button>
+            <button type="submit">PAY NOW</button>
           </div>
         </div>
       </form>
