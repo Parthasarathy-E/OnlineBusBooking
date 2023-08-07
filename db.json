@@ -403,12 +403,16 @@
   ],
   "userDetails": [
     {
-      "id": 1,
-      "name": "sankar",
-      "email": "sankar@gmail.com",
-      "mobileNumber": 8270136721,
-      "password": "sankar@123",
-      "confirmPassword": ""
+      "0": {
+        "name": "parthasarathy ",
+        "email": "partha11@gmail.com",
+        "mobileNumber": 9080756620,
+        "password": "partha@123",
+        "confirmPassword": "",
+        "id": 1,
+        "uid": 1001
+      },
+      "id": 1
     }
   ],
   "bookedSeats": [

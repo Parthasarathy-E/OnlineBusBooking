@@ -12,6 +12,7 @@ import {
 import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { UserAuthService } from '../user-auth.service';
 @Component({
   selector: 'app-Login',
   templateUrl: './Login.component.html',
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private userAuth: UserAuthService
   ) {}
 
   ngOnInit(): void {
@@ -55,35 +57,18 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
-    this.http.get<any>('http://localhost:3000/signupUsers').subscribe(
-      (res) => {
-        console.log(res);
-        const user = res.find((a: any) => {
-          return (
-            a.email === this.loginForm.value.email &&
-            a.password === this.loginForm.value.password
-          );
-        });
-        if (user) {
-          alert('Login Success');
-          this.http
-            .patch<any>(
-              'http://localhost:3000/userDetails/1',
-              Object.assign(user, { id: 1 })
-            )
-            .subscribe((res) => console.log(res));
-          this.loginForm.reset();
-          localStorage.setItem('userId', user.uid);
-          this.location.back();
-          this.router.navigate(['/home']);
-        } else {
-          alert('user not found');
-        }
-      },
-      (err) => {
-        ('Something went worng.!!');
-      }
+    this.userAuth.userLogIn(
+      this.loginForm.value.email,
+      this.loginForm.value.password
     );
+    this.userAuth.signInStatus.subscribe((result) => {
+      console.warn(result);
+      if (result) {
+        this.loginForm.reset();
+        this.location.back();
+        this.router.navigate(['/home']);
+      }
+    });
   }
   getErrorMessage() {
     if (this.email.hasError('required')) {
