@@ -24,4 +24,7 @@ export class AdminService {
       });
     });
   }
+  addBusToList(data: any) {
+    return this.helper.post('/BusList', data);
+  }
 }
