@@ -46,10 +46,13 @@ export class PaymentComponent implements OnInit {
     });
 
     this.user.getSelectedBusDetails().subscribe((res: any) => {
-      this.userDetails = res;
+      this.admin.getBusByName(res.Bus_Number);
+      localStorage.setItem('selectedBusDetails', JSON.stringify(res));
     });
-    this.admin.getBusByName(this.userDetails.Bus_Number);
-    this.currId = localStorage.getItem('selectedBus');
+    this.userDetails = JSON.parse(
+      String(localStorage.getItem('selectedBusDetails'))
+    );
+    this.currId = JSON.parse(String(localStorage.getItem('selectedBus')));
   }
   async goTo() {
     let selectedSeats = this.userDetails.Seats.filter((a: any) => !a.booked);
@@ -68,11 +71,10 @@ export class PaymentComponent implements OnInit {
       });
       let addBooking = {};
       this.user.getSelectedBusDetails().subscribe((res: any) => {
-        let user = Object.assign({}, res);
         addBooking = Object.assign(
           {},
           {
-            uid: user.uid,
+            uid: localStorage.getItem('userId'),
             status: true,
             busDetails: this.currId,
             Seats: selectedSeats,

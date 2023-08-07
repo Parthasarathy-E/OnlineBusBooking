@@ -11,7 +11,7 @@ export class AdminService {
       .get(`/BusList?Bus_Number=${Bus_Number}`)
       .subscribe((result: any) => {
         if (result && result.length == 1) {
-          localStorage.setItem('selectedBus', result[0]);
+          localStorage.setItem('selectedBus', JSON.stringify(result[0]));
         }
       });
   }
@@ -23,7 +23,7 @@ export class AdminService {
     return this.helper.get('/BusList' + id);
   }
   updateBusById(id: any, value: any) {
-    return this.helper.patch('/BusList' + id, value);
+    return this.helper.patch('/BusList/' + id, value);
   }
   toggleBusStatus(id: any, value: any) {
     this.getBusById(id).subscribe((res) => {
