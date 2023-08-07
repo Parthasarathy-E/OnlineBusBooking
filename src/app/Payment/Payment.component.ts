@@ -53,47 +53,49 @@ export class PaymentComponent implements OnInit {
   }
   async goTo() {
     let selectedSeats = this.userDetails.Seats.filter((a: any) => !a.booked);
-    this.currId.Seats = this.userDetails.Seats.map((a: any) =>
-      !a.booked
-        ? Object.assign(a, {
-            phoneNumber: this.userDetails.phoneNumber,
-            booked: true,
-            email: this.userDetails.email,
-          })
-        : a
-    );
-    this.admin.updateBusById(this.currId.id, this.currId).subscribe((res) => {
-      console.log(res);
-    });
-    let addBooking = {};
-    this.user.getSelectedBusDetails().subscribe((res: any) => {
-      let user = Object.assign({}, res);
-      addBooking = Object.assign(
-        {},
-        {
-          uid: user.uid,
-          status: true,
-          busDetails: this.currId,
-          Seats: selectedSeats,
-        }
+    if (selectedSeats.length > 0) {
+      this.currId.Seats = this.userDetails.Seats.map((a: any) =>
+        !a.booked
+          ? Object.assign(a, {
+              phoneNumber: this.userDetails.phoneNumber,
+              booked: true,
+              email: this.userDetails.email,
+            })
+          : a
       );
-      let allBooking = {};
-      this.user.getAllBookingHistory().subscribe((res) => {
-        allBooking = Object.assign({}, res);
+      this.admin.updateBusById(this.currId.id, this.currId).subscribe((res) => {
+        console.log(res);
       });
-      this.user
-        .updateBookedHistory({
-          ...allBooking,
-          [Math.random().toString(36).substring(2, 7)]: addBooking,
-        })
-        .subscribe((res) => console.log(res));
-    });
+      let addBooking = {};
+      this.user.getSelectedBusDetails().subscribe((res: any) => {
+        let user = Object.assign({}, res);
+        addBooking = Object.assign(
+          {},
+          {
+            uid: user.uid,
+            status: true,
+            busDetails: this.currId,
+            Seats: selectedSeats,
+          }
+        );
+        let allBooking = {};
+        this.user.getAllBookingHistory().subscribe((res) => {
+          allBooking = Object.assign({}, res);
+        });
+        this.user
+          .updateBookedHistory({
+            ...allBooking,
+            [Math.random().toString(36).substring(2, 7)]: addBooking,
+          })
+          .subscribe((res) => console.log(res));
+      });
 
-    // alert
-    // ok -> /mybooking
-    alert('Booked Successfully !!!');
-    setTimeout(() => {
-      this.router.navigate(['/mybookings']);
-    }, 2000);
+      // alert
+      // ok -> /mybooking
+      alert('Booked Successfully !!!');
+      setTimeout(() => {
+        this.router.navigate(['/mybookings']);
+      }, 2000);
+    }
   }
 }
