@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-SelectSeat',
@@ -17,34 +18,30 @@ export class SelectSeatComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private user: UserService
   ) {}
 
   ngOnInit() {
     // let qureyStr = this.route.snapshot.paramMap.get('selectedBus');
-    this.http
-      .get<any>('http://localhost:3000/selectedBus/1')
-      .subscribe((res) => {
-        this.SelectedBus = res;
-        for (let i = 1; i < 41; i++) {
-          let index = this.SelectedBus.Seats.findIndex(
-            (a: any) => a.index == i
-          );
-          if (index != -1) {
-            this.seats.push(this.SelectedBus.Seats[index]);
-            continue;
-          }
-          this.seats.push({ index: i, value: false, booked: false });
+    this.user.getSelectedBusDetails().subscribe((res) => {
+      this.SelectedBus = res;
+      for (let i = 1; i < 41; i++) {
+        let index = this.SelectedBus.Seats.findIndex((a: any) => a.index == i);
+        if (index != -1) {
+          this.seats.push(this.SelectedBus.Seats[index]);
+          continue;
         }
-      });
+        this.seats.push({ index: i, value: false, booked: false });
+      }
+    });
   }
   selectSeat(seat: any) {
     seat.value = !seat.value;
   }
   bookBus() {
-    this.http
-      .patch<any>(
-        'http://localhost:3000/selectedBus/1',
+    this.user
+      .updateSelectedBusDetails(
         Object.assign(this.SelectedBus, {
           Seats: this.seats.filter((a) => a.value),
         })
