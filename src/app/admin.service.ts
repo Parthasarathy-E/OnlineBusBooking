@@ -6,6 +6,15 @@ import { HelperService } from './helper.service';
   providedIn: 'root',
 })
 export class AdminService {
+  getBusByName(Bus_Number: any) {
+    this.helper
+      .get(`/BusList?Bus_Number=${Bus_Number}`)
+      .subscribe((result: any) => {
+        if (result && result.length == 1) {
+          localStorage.setItem('selectedBus', result[0]);
+        }
+      });
+  }
   constructor(private http: HttpClient, private helper: HelperService) {}
   getBusList() {
     return this.helper.get('/BusList');

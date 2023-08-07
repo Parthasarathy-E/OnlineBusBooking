@@ -96,14 +96,3 @@ export class BookingConfirmationComponent implements OnInit {
     return disabled;
   }
 }
-
-/*
-  SeatSelectedUserDetails
-  SelectLocation
-  SelectBus
-  SelectSeat
-  Home
-  Contactus
-  BookingConfirmation
-  AboutUs
- */

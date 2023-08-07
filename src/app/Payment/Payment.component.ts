@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AdminService } from '../admin.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-Payment',
@@ -26,7 +28,9 @@ export class PaymentComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private admin: AdminService,
+    private user: UserService
   ) {}
 
   ngOnInit(): void {
@@ -41,20 +45,11 @@ export class PaymentComponent implements OnInit {
       CVV: ['', [Validators.required, Validators.pattern('[0-9]{3}')]],
     });
 
-    this.http
-      .get<any>('http://localhost:3000/selectedBus/1')
-      .subscribe((res) => {
-        this.userDetails = res;
-      });
-    this.http
-      .get<any>('http://localhost:3000/BusList')
-      .subscribe(async (res) => {
-        this.currId = JSON.parse(
-          JSON.stringify(
-            res.find((a: any) => a.Bus_Number == this.userDetails.Bus_Number)
-          )
-        );
-      });
+    this.user.getSelectedBusDetails().subscribe((res: any) => {
+      this.userDetails = res;
+    });
+    this.admin.getBusByName(this.userDetails.Bus_Number);
+    this.currId = localStorage.getItem('selectedBus');
   }
   async goTo() {
     let selectedSeats = this.userDetails.Seats.filter((a: any) => !a.booked);
@@ -67,41 +62,32 @@ export class PaymentComponent implements OnInit {
           })
         : a
     );
-    this.http
-      .patch<any>(
-        'http://localhost:3000/BusList/' + this.currId.id,
-        this.currId
-      )
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.admin.updateBusById(this.currId.id, this.currId).subscribe((res) => {
+      console.log(res);
+    });
     let addBooking = {};
-    this.http
-      .get<any>('http://localhost:3000/userDetails/1')
-      .subscribe((res) => {
-        let user = Object.assign({}, res);
-        addBooking = Object.assign(
-          {},
-          {
-            uid: user.uid,
-            status: true,
-            busDetails: this.currId,
-            Seats: selectedSeats,
-          }
-        );
-        let allBooking = {};
-        this.http
-          .get<any>('http://localhost:3000/bookedSeats/1')
-          .subscribe((res) => {
-            allBooking = Object.assign({}, res);
-          });
-        this.http
-          .patch<any>('http://localhost:3000/bookedSeats/1', {
-            ...allBooking,
-            [Math.random().toString(36).substring(2, 7)]: addBooking,
-          })
-          .subscribe((res) => console.log(res));
+    this.user.getSelectedBusDetails().subscribe((res: any) => {
+      let user = Object.assign({}, res);
+      addBooking = Object.assign(
+        {},
+        {
+          uid: user.uid,
+          status: true,
+          busDetails: this.currId,
+          Seats: selectedSeats,
+        }
+      );
+      let allBooking = {};
+      this.user.getAllBookingHistory().subscribe((res) => {
+        allBooking = Object.assign({}, res);
       });
+      this.user
+        .updateBookedHistory({
+          ...allBooking,
+          [Math.random().toString(36).substring(2, 7)]: addBooking,
+        })
+        .subscribe((res) => console.log(res));
+    });
 
     // alert
     // ok -> /mybooking
