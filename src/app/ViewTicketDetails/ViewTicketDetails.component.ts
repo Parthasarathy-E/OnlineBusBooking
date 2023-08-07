@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { AdminService } from '../admin.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-ViewTicketDetails',
@@ -26,16 +27,15 @@ export class ViewTicketDetailsComponent implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-    private admin: AdminService
+    private admin: AdminService,
+    private user: UserService
   ) {}
 
   ngOnInit() {
     this.tid = this.route.snapshot.paramMap.get('tid');
-    this.http
-      .get<any>('http://localhost:3000/bookedSeats/1')
-      .subscribe((res1) => {
-        this.ticketInfo = res1[this.tid];
-      });
+    this.user.getAllBookingHistory().subscribe((res1: any) => {
+      this.ticketInfo = res1[this.tid];
+    });
   }
   checkCancelDate() {
     return (
@@ -59,16 +59,12 @@ export class ViewTicketDetailsComponent implements OnInit {
       .updateBusById(this.ticketInfo.busDetails.id, this.ticketInfo.busDetails)
       .subscribe((res) => console.log(res));
     this.ticketInfo.status = false;
-    this.http
-      .get<any>('http://localhost:3000/bookedSeats/1')
-      .subscribe((res1) => {
-        let payload = { ...res1, [this.tid]: this.ticketInfo };
-        this.http
-          .patch<any>('http://localhost:3000/bookedSeats/1', payload)
-          .subscribe((res) => {
-            alert('Your Ticket has been Canceled Successfully...!');
-          });
+    this.user.getAllBookingHistory().subscribe((res1) => {
+      let payload = { ...res1, [this.tid]: this.ticketInfo };
+      this.user.updateBookedHistory(payload).subscribe((res) => {
+        alert('Your Ticket has been Canceled Successfully...!');
       });
+    });
     this.goBack();
   }
   goBack() {
