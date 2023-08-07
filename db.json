@@ -19,7 +19,8 @@
   "adminUsers": [
     {
       "email": "onlinebusbooking@gmail.com",
-      "password": "bus@123"
+      "password": "bus@123",
+      "aid": 1
     }
   ],
   "signupUsers": [

@@ -11,6 +11,7 @@ import { PaymentComponent } from './Payment/Payment.component';
 import { AdminLoginComponent } from './AdminLogin/AdminLogin.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
       AboutUsComponent,
       PaymentComponent,
       AdminLoginComponent,
+      HeaderComponent,
    ],
   imports: [
     BrowserModule,
