@@ -73,20 +73,4 @@ export class SelectLocationComponent implements OnInit {
       },
     ]);
   }
-  go_To(toPath: any) {
-    //
-    this.router.navigate([toPath]); //
-  } //
-  logOut() {
-    //
-    this.http
-      .put('http://localhost:3000/userDetails/1', { id: 1 })
-      .subscribe((res) => {
-        //
-        alert('Logout Successfully');
-        setTimeout(() => {
-          this.go_To('/');
-        }, 2000);
-      });
-  }
 }

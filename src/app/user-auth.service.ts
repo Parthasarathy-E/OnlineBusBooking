@@ -22,9 +22,6 @@ export class UserAuthService {
       .subscribe(
         (result: any) => {
           if (result && result.length === 1) {
-            this.helper
-              .patch('/userDetails/1', result)
-              .subscribe((res) => console.log(res));
             localStorage.setItem('userId', result[0].uid);
             this.userSignInStatus.emit(true);
             alert('Login Success');

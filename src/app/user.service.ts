@@ -10,6 +10,15 @@ export class UserService {
   getSelectedBusDetails() {
     return this.helper.get('/selectedBus/1');
   }
+  updateSelectedBusDetails(data: any) {
+    return this.helper.patch('/selectedBus/1', data);
+  }
+  setSelectedBus(data: any) {
+    return this.helper.post('/selectedBus/1', data);
+  }
+  removeSelectedBus() {
+    return this.helper.delete('/selectedBus/1');
+  }
   getAllBookingHistory() {
     return this.helper.get('/bookedSeats/1');
   }

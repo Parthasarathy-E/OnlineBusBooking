@@ -20,4 +20,8 @@ export class HelperService {
   post(url: string, data: any) {
     return this.http.post(this.URL + url, data);
   }
+
+  delete(url: string) {
+    return this.http.delete(this.URL + url);
+  }
 }

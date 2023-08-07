@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-BookingConfirmation',
   templateUrl: './BookingConfirmation.component.html',
@@ -35,7 +36,8 @@ export class BookingConfirmationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private user: UserService
   ) {}
   ngOnInit() {
     this.bookedSeats = this.formBuilder.group({
@@ -54,19 +56,15 @@ export class BookingConfirmationComponent implements OnInit {
         ],
       ],
     });
-    this.http
-      .get<any>('http://localhost:3000/selectedBus/1')
-      .subscribe((res) => {
-        this.SelectedDetail = Object.assign(res, {
-          totalAmount:
-            res.amount * res.Seats.filter((a: any) => !a.booked).length,
-          phoneNumber: res?.phoneNumber ? res.phoneNumber : '',
-          email: res?.email ? res.email : '',
-        });
-        this.SeatDetail = this.SelectedDetail.Seats.filter(
-          (a: any) => !a.booked
-        );
+    this.user.getSelectedBusDetails().subscribe((res: any) => {
+      this.SelectedDetail = Object.assign(res, {
+        totalAmount:
+          res.amount * res.Seats.filter((a: any) => !a.booked).length,
+        phoneNumber: res?.phoneNumber ? res.phoneNumber : '',
+        email: res?.email ? res.email : '',
       });
+      this.SeatDetail = this.SelectedDetail.Seats.filter((a: any) => !a.booked);
+    });
     this.isLogedIn = localStorage.getItem('userId') != null;
   }
   checkAndNavigate() {
@@ -77,11 +75,9 @@ export class BookingConfirmationComponent implements OnInit {
     }
   }
   goTo() {
-    this.http
-      .patch<any>('http://localhost:3000/selectedBus/1', this.SelectedDetail)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.user.updateSelectedBusDetails(this.SelectedDetail).subscribe((res) => {
+      console.log(res);
+    });
     this.router.navigate(['/payment']);
   }
 

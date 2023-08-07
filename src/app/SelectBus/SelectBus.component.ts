@@ -3,6 +3,8 @@ import { MatTableModule } from '@angular/material/table';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AdminService } from '../admin.service';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-SelectBus',
   templateUrl: './SelectBus.component.html',
@@ -30,7 +32,9 @@ export class SelectBusComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private admin: AdminService,
+    private user: UserService
   ) {}
 
   ngOnInit() {
@@ -39,10 +43,8 @@ export class SelectBusComponent implements OnInit {
       'destinationLocation'
     );
     this.dateSelected = this.route.snapshot.paramMap.get('dateSelected');
-    this.http
-      .delete<any>('http://localhost:3000/selectedBus/1')
-      .subscribe((res) => console.log(res));
-    this.http.get<any>('http://localhost:3000/BusList').subscribe((res) => {
+    this.user.removeSelectedBus().subscribe((res) => console.log(res));
+    this.admin.getBusList().subscribe((res: any) => {
       this.filteredBusList = res.filter(
         (a: any) =>
           a.Source?.toLowerCase() == this.sourceLocation?.toLowerCase() &&
@@ -54,11 +56,8 @@ export class SelectBusComponent implements OnInit {
     });
   }
   bookbus(Bus: any) {
-    this.http
-      .post<any>(
-        'http://localhost:3000/selectedBus',
-        Object.assign(Bus, { id: 1 })
-      )
+    this.user
+      .setSelectedBus(Object.assign(Bus, { id: 1 }))
       .subscribe((res) => console.log(res));
     this.router.navigate(['/selectseat']);
   }

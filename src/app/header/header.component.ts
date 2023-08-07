@@ -10,15 +10,11 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   constructor(private router: Router, private http: HttpClient) {}
   logOut(accountType: string) {
-    this.http
-      .put('http://localhost:3000/userDetails/1', { id: 1 })
-      .subscribe((res) => {
-        alert('Logout Successfully');
-        localStorage.removeItem(accountType);
-        setTimeout(() => {
-          this.navigateTo('/');
-        }, 2000);
-      });
+    localStorage.removeItem(accountType);
+    alert('Logout Successfully');
+    setTimeout(() => {
+      this.navigateTo('/');
+    }, 2000);
   }
   navigateTo(toPath: any) {
     this.router.navigate([toPath]);
