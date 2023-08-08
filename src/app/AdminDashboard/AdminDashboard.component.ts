@@ -11,9 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
-
-const Edit =
-  '<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M180-180h44l443-443-44-44-443 443v44Zm614-486L666-794l42-42q17-17 42-17t42 17l44 44q17 17 17 42t-17 42l-42 42Zm-42 42L248-120H120v-128l504-504 128 128Zm-107-21-22-22 44 44-22-22Z"/></svg>';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-AdminDashboard',
@@ -51,25 +49,19 @@ export class AdminDashboardComponent implements OnInit {
   ) {
     iconRegistry.addSvgIcon(
       'download',
-      sanitizer.bypassSecurityTrustResourceUrl(
-        'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg'
-      )
+      sanitizer.bypassSecurityTrustResourceUrl(environment.icon.download)
     );
     iconRegistry.addSvgIcon(
       'active',
-      sanitizer.bypassSecurityTrustResourceUrl(
-        'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/check_circle/default/48px.svg'
-      )
+      sanitizer.bypassSecurityTrustResourceUrl(environment.icon.check_circle)
     );
     iconRegistry.addSvgIcon(
       'inActive',
-      sanitizer.bypassSecurityTrustResourceUrl(
-        'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/cancel/default/48px.svg'
-      )
+      sanitizer.bypassSecurityTrustResourceUrl(environment.icon.cancel)
     );
-    iconRegistry.addSvgIconLiteral(
+    iconRegistry.addSvgIcon(
       'edit',
-      sanitizer.bypassSecurityTrustHtml(Edit)
+      sanitizer.bypassSecurityTrustResourceUrl(environment.icon.edit)
     );
   }
 
