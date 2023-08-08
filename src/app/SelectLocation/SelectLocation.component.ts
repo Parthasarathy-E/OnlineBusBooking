@@ -13,7 +13,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { format } from 'date-fns';
 import { environment } from 'src/environments/environment';
-// import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-SelectLocation',
@@ -33,12 +32,11 @@ export class SelectLocationComponent implements OnInit {
   destinationLocation: any;
   dateSelected: any;
   public travelsForm!: FormGroup;
-  // locations: Array<any> = environment.locations;
+  locations: Array<any> = environment.locations;
   toSelected: any;
   validateTimeRange: any;
   validateDateRange: any;
   minDate: string = format(new Date(), 'yyyy-MM-dd');
-  locations: any;
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -46,8 +44,6 @@ export class SelectLocationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // console.log(environment);
-    
     this.toSelected = '';
     this.travelsForm = this.formBuilder.group({
       Source: ['', Validators.required],
