@@ -94,7 +94,7 @@
                    *password is required
                   </div>
                   <div *ngIf="signupForm.get('password')?.errors?.['pattern']">
-                    Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters
+                  <!-- required -->
                   </div>
                   </div>
                   </div>
@@ -115,8 +115,8 @@
                    *confirm password is required
                   </div>
                   <div *ngIf="signupForm.get('Confirmpassword')?.errors?.['pattern']">
-                    Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters
-                  </div>
+<!-- required                -->
+   </div>
                   </div>
                   </div>
             <button class="login-btn">SignUp</button>

@@ -3,15 +3,15 @@
     <div class="userdetails">
       <div class="inputbox">
         <span class="details">From</span>
-        <select name="source" required [(ngModel)]="sourceLocation">
-          <option *ngFor="let location of locations" [value]="location">
-            {{ location }}
-          </option>
-        </select>
         <!-- <select name="source" required [(ngModel)]="sourceLocation">
-          <div *ngFor="let location of locations">
+          <option *ngFor="let location of locations" [value]="location">
+            {{location}}
+          </option>
+        </select> -->
+        <select name="source" required [(ngModel)]="sourceLocation">
+          <!-- <div *ngFor="let location of locations">
             <option [value]="location">{{ location }}</option>
-          </div>
+          </div> -->
           <option value="Ariyalur">Ariyalur</option>
           <option value="Chennai">Chennai</option>
           <option value="Coimbatore">Coimbatore</option>
@@ -43,16 +43,16 @@
           <option value="Vellore">Vellore</option>
           <option value="Villupuram">Villupuram</option>
           <option value="Virudhunagar">Virudhunagar</option>
-        </select> -->
+        </select>
       </div>
       <div class="inputbox">
         <span class="details">To</span>
-        <select name="destination" required [(ngModel)]="sourceLocation">
-          <option *ngFor="let location of locations" [value]="location">
+        <!-- <select name="destination" required [(ngModel)]="destinationLocation">
+           <option *ngFor="let location of locations" [value]="location">
             {{ location }}
           </option>
-        </select>
-        <!-- <select name="destination" required [(ngModel)]="destinationLocation">
+        </select> -->
+         <select name="destination" required [(ngModel)]="destinationLocation">
           <option value="Ariyalur">Ariyalur</option>
           <option value="Chennai">Chennai</option>
           <option value="Coimbatore">Coimbatore</option>
@@ -84,8 +84,9 @@
           <option value="Vellore">Vellore</option>
           <option value="Villupuram">Villupuram</option>
           <option value="Virudhunagar">Virudhunagar</option>
-        </select> -->
+        </select>
       </div>
+
       <div class="inputbox">
         <span class="details">Date</span>
         <input

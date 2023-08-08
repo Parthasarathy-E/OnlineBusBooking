@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
@@ -13,11 +14,13 @@ import { UserService } from '../user.service';
   imports: [CommonModule, FormsModule],
 })
 export class SeatSelectedUsersDetailsComponent implements OnInit {
+  public userDetailsForm!: FormGroup;
   SelectedSeats!: any;
   seatSelected!: Array<any>;
   filteredSeat: any;
 
   constructor(
+    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
@@ -25,6 +28,11 @@ export class SeatSelectedUsersDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.userDetailsForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.pattern('[A-Za-z]{3,}')]],
+      age: ['', Validators.required, Validators.pattern('[1-9]{2}')]    
+    });
+
     // let qureyStr = this.route.snapshot.paramMap.get('value');
     // this.SelectedSeats = JSON.parse(String(qureyStr));
     this.user.getSelectedBusDetails().subscribe((res) => {
@@ -38,6 +46,9 @@ export class SeatSelectedUsersDetailsComponent implements OnInit {
       );
       this.filteredSeat = this.seatSelected.filter((a: any) => !a.booked);
     });
+  }
+  userDetails() {
+    
   }
   goTo() {
     // router

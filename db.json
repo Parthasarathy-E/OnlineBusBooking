@@ -16,6 +16,9 @@
       "postId": 1
     }
   ],
+  "userDetailsForm": [
+    {}
+  ],
   "adminUsers": [
     {
       "email": "onlinebusbooking@gmail.com",
@@ -392,6 +395,11 @@
           "gender": "Male",
           "phoneNumber": 9080756620,
           "email": "partha11@gmail.com"
+        },
+        {
+          "index": 28,
+          "value": true,
+          "booked": false
         }
       ],
       "Source": "Coimbatore",

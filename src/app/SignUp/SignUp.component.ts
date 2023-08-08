@@ -34,14 +34,14 @@ export class SignUpComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('(?=.d)(?=.[a-z])(?=.*[A-Z]).{3,}'),
+          Validators.pattern(''),
         ],
       ],
       confirmPassword: [
         '',
         [
           Validators.required,
-          Validators.pattern('(?=.d)(?=.[a-z])(?=.*[A-Z]).{3,}'),
+          Validators.pattern(''),
         ],
       ],
     });

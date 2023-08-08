@@ -38,7 +38,7 @@ export class PaymentComponent implements OnInit {
       name: ['', Validators.required, Validators.pattern('[a-zA-Z ]*')],
       cardNumber: [
         '',
-        [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}')],
+        [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}')],
       ],
       expiryMonth: ['', [Validators.required, Validators.pattern('[1-9]{2}')]],
       expiryYear: ['', [Validators.required, Validators.pattern('[0-9]{4}')]],
