@@ -4,43 +4,39 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../user-auth.service';
 
 @Component({
   selector: 'app-AdminLogin',
   templateUrl: './AdminLogin.component.html',
   styleUrls: ['./AdminLogin.component.css'],
-
 })
 export class AdminLoginComponent implements OnInit {
+  public adminloginForm!: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+    private userAuth: UserAuthService
+  ) {}
 
-  public adminloginForm !:FormGroup
-  constructor(private formBuilder :FormBuilder, private http : HttpClient,private router :Router) { }
-
-  ngOnInit() :void {
-    this.adminloginForm =this.formBuilder.group({
-      email:['',Validators.required],
-      password:['',Validators.required]
-    })
-    
-  }
- login(){
-   this.http.get<any>("http://localhost:3000/adminUsers")
-   .subscribe(res=>{
-    console.log(res)
-    const user =res.find((a:any)=>{
-      return a.email === this.adminloginForm.value.email &&  a.password === this.adminloginForm.value.password
+  ngOnInit(): void {
+    this.adminloginForm = this.formBuilder.group({
+      email: ['', [Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$')]],
+      password: ['',[ Validators.required,Validators.pattern('')]],
     });
-    if(user){
-      alert("Login Success");
-      this.adminloginForm.reset();
-      this.router.navigate(['/admindashboard'])
-    }
-    else {
-      alert("Admin User not found");
-    }
-   },err=>{("Something went worng.!!")
-  })
-
- }
-
+  }
+  login() {
+    this.userAuth.adminLogin(
+      this.adminloginForm.value.email,
+      this.adminloginForm.value.password
+    );
+    this.userAuth.userSignInStatus.subscribe((result) => {
+      console.warn(result);
+      if (result) {
+        this.adminloginForm.reset();
+        this.router.navigate(['/admindashboard']);
+      }
+    });
+  }
 }

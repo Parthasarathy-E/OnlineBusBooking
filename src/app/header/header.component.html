@@ -1,0 +1,22 @@
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100" />
+  <div class="nav-items">
+    <a (click)="navigateTo('/home')">Home</a>
+    <a (click)="navigateTo('/aboutus')">About us</a>
+    <a (click)="navigateTo('/contactus')">Contact</a>
+    <a (click)="navigateTo('/selectlocation')" *ngIf="getUserType() != 'admin'"
+      >Search Buses</a
+    >
+    <a (click)="navigateTo('/mybookings')" *ngIf="getUserType() == 'user'"
+      >My Bookings</a
+    >
+    <a (click)="navigateTo('/adminlogin')" *ngIf="getUserType() == 'no-user'"
+      >Admin Login</a
+    >
+    <a (click)="navigateTo('/login')" *ngIf="getUserType() == 'no-user'"
+      >Login</a
+    >
+    <a (click)="logOut('userId')" *ngIf="getUserType() == 'user'">Logout</a>
+    <a (click)="logOut('adminId')" *ngIf="getUserType() == 'admin'">Logout</a>
+  </div>
+</nav>
