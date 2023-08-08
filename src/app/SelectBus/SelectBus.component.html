@@ -1,5 +1,15 @@
-
-
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+<div class="nav-items">
+  <a (click)="goTo('/home')">Home</a>
+  <a (click)="goTo('/aboutus')">About us</a>
+  <a (click)="goTo('/contactus')">Contact</a>
+  <a (click)="goTo('/selectlocation')">Search Buses</a>
+  <a (click)="goTo('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
+  <a (click)="goTo('/login')" *ngIf="!isLogedIn">Login</a>
+  <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+</div>
+</nav>
 <table mat-table [dataSource]="filteredBusList" class="mat-elevation-z8">
   <ng-container matColumnDef="Bus_Number">
     <th  *matHeaderCellDef>No.</th>

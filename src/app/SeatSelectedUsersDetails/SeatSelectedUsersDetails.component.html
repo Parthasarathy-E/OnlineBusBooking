@@ -1,4 +1,15 @@
-
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+<div class="nav-items">
+  <a (click)="go_To('/home')">Home</a>
+  <a (click)="go_To('/aboutus')">About us</a>
+  <a (click)="go_To('/contactus')">Contact</a>
+  <a (click)="go_To('/selectlocation')">Search Buses</a>
+  <a (click)="go_To('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
+  <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a>
+  <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
+</div>
+</nav>
   <body>
   <div class="container">
 <div class="title">
@@ -6,53 +17,18 @@
 </div>
 <br>
   <hr class="solid">
-<form action="/home"   *ngFor="let seat of filteredSeat">
+<form action="/home"  *ngFor="let seat of filteredSeat">
   <div class="userdetails">
     <div class="inputbox">
-      <span class="details">Passenger Name</span> <input type="text" name="name"   [value]="seat.name" [(ngModel)]="seat.name"
+      <span class="details">Passenger Name</span> <input type="text" [value]="seat.name" [(ngModel)]="seat.name"
          name="name" required>
     </div>
-    <!-- <div style="color: red;"
-          *ngIf="
-            (userDetailsForm.get('name')?.invalid &&
-            userDetailsForm.controls['name'].dirty) ||
-            userDetailsForm.get('name')?.touched
-          "
-        >
-        <div class="invalid-input" style="color: red;">
-                <div *ngIf="userDetailsForm.get('name')?.errors?.['required']">
-                   *passenger name is required
-                  </div>
-                  <div *ngIf="userDetailsForm.get('name')?.errors?.['pattern']">
-                    Must contain at least 3 or more characters
-                  </div>
-                  </div>
-                  </div> -->
-
     <div class="inputbox">
       <span class="details">Seat</span> <input type="text" name="seat" required [value]="seat.index" readonly>
     </div>
     <div class="inputbox">
-      <span class="details">Age</span> <input type="number" min="1"   name="age" id="age"  required [(ngModel)]="seat.age">
+      <span class="details">Age</span> <input type="number" min="1" name ="age" required [(ngModel)]="seat.age">
     </div>
-    <!-- <div style="color: red;"
-          *ngIf="
-            (userDetailsForm.get('age')?.invalid &&
-            userDetailsForm.controls['age'].dirty) ||
-            userDetailsForm.get('age')?.touched
-          "
-        >
-        <div class="invalid-input" style="color: red;">
-                <div *ngIf="userDetailsForm.get('age')?.errors?.['required']">
-                   *Age is required
-                  </div>
-                  <div *ngIf="userDetailsForm.get('age')?.errors?.['pattern']">
-                    Enter the valid age
-                  </div>
-                  </div>
-                  </div>
- -->
-
     <div class="inputbox">
       <span class="details">Gender</span> <select name= "Gender" required [(ngModel)]="seat.gender">
         <option value="Male">Male</option>

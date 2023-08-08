@@ -1,80 +1,60 @@
-<!-- <nav class="nav-bar">
+<nav class="nav-bar">
   <img src="assets/image/C i t y.png" width="110" height="100"/>
   <div class="nav-items">
-    <a href="/home">Home</a>
-    <a href="/aboutus">Aboutus</a>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/aboutus">Aboutus</a>
     <a href="/contactus">Contact</a>
   </div>
   <button><b routerLink="/selectlocation">Back</b></button>
-</nav> -->
+</nav>
 <!-- <mat-form-field>
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
 </mat-form-field> -->
-<button (click)="addTravels('add')">Add Travels</button>
-<br />
-<br />
-<table mat-table [dataSource]="BUS_DATA" class="mat-elevation-z8">
+<button  (click)="addTravels('add')">Add Travels</button>
+<br>
+<br>
+<table mat-table  [dataSource]="BUS_DATA" class="mat-elevation-z8">
+
   <ng-container matColumnDef="Bus_Number">
-    <th *matHeaderCellDef>Bus Number</th>
+    <th  *matHeaderCellDef>Bus Number</th>
     <td mat-cell *matCellDef="let element">{{ element.Bus_Number }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Travels_Name">
-    <th *matHeaderCellDef>Travels Name</th>
+    <th  *matHeaderCellDef>Travels Name</th>
     <td mat-cell *matCellDef="let element">{{ element.Travels_Name }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Source">
-    <th *matHeaderCellDef>Source</th>
+    <th  *matHeaderCellDef>Source</th>
     <td mat-cell *matCellDef="let element">{{ element.Source }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Destination">
-    <th *matHeaderCellDef>Destination</th>
+    <th  *matHeaderCellDef>Destination</th>
     <td mat-cell *matCellDef="let element">{{ element.Destination }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Date">
-    <th *matHeaderCellDef>Date</th>
+    <th  *matHeaderCellDef>Date</th>
     <td mat-cell *matCellDef="let element">{{ element.Date }}</td>
   </ng-container>
   <ng-container matColumnDef="Amount">
-    <th *matHeaderCellDef>Amount</th>
+    <th  *matHeaderCellDef>Amount</th>
     <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
   </ng-container>
   <ng-container matColumnDef="Action">
-    <th *matHeaderCellDef>Activity</th>
-    <td mat-cell *matCellDef="let element">
-      <mat-icon
-        svgIcon="edit"
-        aria-hidden="false"
-        aria-label=""
-        (click)="addTravels(element.id)"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="download"
-        aria-hidden="false"
-        aria-label=""
-        (click)="openAction(element, 'download')"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="active"
-        *ngIf="element.status"
-        aria-hidden="false"
-        aria-label=""
-        (click)="toggleBusStatus(element.id, false)"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="inActive"
-        *ngIf="!element.status"
-        aria-hidden="false"
-        aria-label=""
-        (click)="toggleBusStatus(element.id, true)"
-      ></mat-icon>
+  <th  *matHeaderCellDef>Activity</th>
+    <td   mat-cell *matCellDef="let element ">
+      <mat-icon svgIcon="edit"  aria-hidden="false" aria-label="" (click)="addTravels(element.id)"></mat-icon>
+      <mat-icon svgIcon="download" aria-hidden="false" aria-label="" (click)="openAction(element, 'download')"></mat-icon>
+      <mat-icon svgIcon="active" *ngIf="element.status"  aria-hidden="false" aria-label="" (click)="toggleBusStatus(element.id, false)"></mat-icon>
+      <mat-icon svgIcon="inActive" *ngIf="!element.status" aria-hidden="false" aria-label="" (click)="toggleBusStatus(element.id, true)"></mat-icon>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
 </table>
