@@ -1,67 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-SeatSelectedUsersDetails',
   templateUrl: './SeatSelectedUsersDetails.component.html',
   styleUrls: ['./SeatSelectedUsersDetails.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule]
 })
 export class SeatSelectedUsersDetailsComponent implements OnInit {
-  public userDetailsForm!: FormGroup;
   SelectedSeats!: any;
   seatSelected!: Array<any>;
   filteredSeat: any;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private http: HttpClient,
-    private user: UserService
-  ) {}
+  isLogedIn: Boolean = false //
+  constructor( private route: ActivatedRoute,private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-    this.userDetailsForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern('[A-Za-z]{3,}')]],
-      age: ['', Validators.required, Validators.pattern('[1-9]{2}')]    
-    });
-
     // let qureyStr = this.route.snapshot.paramMap.get('value');
     // this.SelectedSeats = JSON.parse(String(qureyStr));
-    this.user.getSelectedBusDetails().subscribe((res) => {
-      this.SelectedSeats = res;
-      this.seatSelected = this.SelectedSeats?.Seats.map((a: any) =>
-        Object.assign(a, {
-          name: a?.name ? a.name : '',
-          age: a?.age ? a.age : '',
-          gender: a?.gender ? a.gender : 'Male',
-        })
-      );
-      this.filteredSeat = this.seatSelected.filter((a: any) => !a.booked);
+    this.http.get<any>("http://localhost:3000/selectedBus/1")
+    .subscribe(res=>{
+     this.SelectedSeats =  res;
+     this.seatSelected = this.SelectedSeats?.Seats.map((a: any) => Object.assign(a, {name: a?.name ? a.name : '' , age: a?.age ? a.age : '', gender: a?.gender ? a.gender : "Male"}));
+     this.filteredSeat = this.seatSelected.filter((a:any) => !a.booked)
     });
+    this.http.get('http://localhost:3000/userDetails/1').subscribe(res => { //
+      this.isLogedIn = res.hasOwnProperty('uid');   //
+    });  //
   }
-  userDetails() {
-    
-  }
-  goTo() {
+  goTo(){
     // router
-    this.user
-      .updateSelectedBusDetails(
-        Object.assign(this.SelectedSeats, { Seats: this.seatSelected })
-      )
-      .subscribe((res) => {
-        console.log(res);
-      });
-    this.router.navigate(['/bookingconfirmation']);
-    console.log(
-      Object.assign(this.SelectedSeats, { Seats: this.seatSelected })
-    );
+    this.http.patch<any>("http://localhost:3000/selectedBus/1", Object.assign(this.SelectedSeats, {Seats: this.seatSelected})).subscribe(res=>{
+console.log(res)
+  });
+this.router.navigate(["/bookingconfirmation"])
+  console.log(Object.assign(this.SelectedSeats, {Seats: this.seatSelected}));
+  }
+  go_To(toPath: any){  //
+    this.router.navigate([toPath]) //
+  } //
+  logout(){ //
+    this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
+      alert('Logout Successfully');
+      setTimeout(() => {
+        this.go_To('/');
+      },2000);
+    });
   }
 }

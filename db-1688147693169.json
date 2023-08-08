@@ -23,72 +23,72 @@
     {
       "name": "parthasarathy ",
       "email": "partha11@gmail.com",
-      "mobileNumber": 9080756620,
+      "mobilenumber": 9080756620,
       "password": "partha@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 1,
       "uid": 1001
     },
     {
       "name": "Siva Ganesh",
       "email": "siva@gmail.com",
-      "mobileNumber": 7092648001,
+      "mobilenumber": 7092648001,
       "password": "siva@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 2,
       "uid": 1002
     },
     {
       "name": "pranav",
       "email": "pranav@gmail.com",
-      "mobileNumber": 9786596894,
+      "mobilenumber": 9786596894,
       "password": "pranav@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 3,
       "uid": 1003
     },
     {
       "name": "Praveen Kumar",
       "email": "Praveenkumar@gmail.com",
-      "mobileNumber": 8925347231,
+      "mobilenumber": 8925347231,
       "password": "praveen@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 4,
       "uid": 1004
     },
     {
       "name": "1",
       "email": "Praveenkumar@gmail.com",
-      "mobileNumber": 8925347231,
+      "mobilenumber": 8925347231,
       "password": "praveen@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 7,
       "uid": 1007
     },
     {
       "name": "1",
       "email": "abarna25@gmail.com",
-      "mobileNumber": 9786596894,
+      "mobilenumber": 9786596894,
       "password": "abarna@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 8,
       "uid": 1008
     },
     {
       "name": "suriya",
       "email": "suriya12@gmail.com",
-      "mobileNumber": 9361575766,
+      "mobilenumber": 9361575766,
       "password": "suriya@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "id": 9,
       "uid": 1009
     },
     {
       "name": "1",
       "email": "suriya12@gmail.com",
-      "mobileNumber": 9361575766,
+      "mobilenumber": 9361575766,
       "password": "suriya@123",
-      "confirmPassword": null,
+      "confirmpassword": null,
       "id": 10,
       "uid": 1010
     }
@@ -249,9 +249,9 @@
       "id": 1,
       "name": "parthasarathy ",
       "email": "partha11@gmail.com",
-      "mobileNumber": 9080756620,
+      "mobilenumber": 9080756620,
       "password": "partha@123",
-      "confirmPassword": "",
+      "confirmpassword": "",
       "uid": 1001
     }
   ],

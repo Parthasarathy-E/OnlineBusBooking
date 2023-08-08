@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; //
+import { HttpClient } from '@angular/common/http';  //
 
 @Component({
   selector: 'app-Home',
@@ -12,10 +14,14 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
   public isDisplayed: boolean = true;
   display: any;
-  constructor() {
+  isLogedIn: Boolean = false //
+  constructor(private router: Router, private http: HttpClient) { //
     this.timer(2);
   }
   ngOnInit() {
+    this.http.get('http://localhost:3000/userDetails/1').subscribe(res => { //
+      this.isLogedIn = res.hasOwnProperty('uid');   //
+    });  //
     this.hideAnimatedDiv();
   }
   timer(minute: number) {
@@ -46,6 +52,17 @@ export class HomeComponent implements OnInit {
   hideAnimatedDiv() {
     setTimeout(() => {
       this.isDisplayed = false;
-    }, 120000);
+    },120000);
+  }
+  goTo(toPath: any){  //
+    this.router.navigate([toPath]) //
+  } //
+  logout(){ //
+    this.http.put('http://localhost:3000/userDetails/1', {id: 1}).subscribe(res => { //
+      alert('Logout Successfully');
+      setTimeout(() => {
+        this.goTo('/');
+      },2000);
+    });
   }
 }

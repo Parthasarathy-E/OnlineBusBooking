@@ -1,86 +1,48 @@
 <!-- new-->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>Login</title>
-  </head>
-  <body>
-    <form [formGroup]="adminloginForm" (ngSubmit)="login()">
-      <div class="container">
-        <img src="assets/image/Work time.gif" />
+
+</head>
+<nav class="nav-bar">
+  <img src="assets/image/C i t y.png" width="110" height="100"/>
+  <div class="nav-items">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/aboutus">Aboutus</a>
+    <a href="/contactus">Contact</a>
+  </div>
+  <button><b routerLink="/selectlocation">Back</b></button>
+</nav>
+<body>
+  <form [formGroup]="adminloginForm" (ngSubmit)="login()">
+    <div class="container">
+        <img src="assets/image/Work time.gif">
 
         <div class="login">
-          <h3 class="title">Admin Login</h3>
+            <h3 class="title">Admin Login</h3>
 
-          <div class="text-input">
-            <i class="fa-solid fa-envelope"></i>
-            <input
-              type="email"
-              id="email"
-              formControlName="email"
-              name="email"
-              placeholder="email"
-              required
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              title="Format:BusBooking@gmail.com"
-            /><br /><br />
-          </div>
-          <div style="color: red;"
-          *ngIf="
-            (adminloginForm.get('email')?.invalid &&
-            adminloginForm.controls['email'].dirty) ||
-            adminloginForm.get('email')?.touched
-          "
-        >
-          <div class="invalid-input" style="color: red;">
-            <div *ngIf="adminloginForm.get('email')?.errors?.['required']">
-              *Email Id is required
+            <div class="text-input">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" formControlName="email" name="email" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Format:BusBooking@gmail.com" ><br><br>
             </div>
-            <div *ngIf="adminloginForm.get('email')?.errors?.['pattern']">
-              Format : Busbooking@gmail.com
-            </div>
-          </div>
-          </div>
-          <div class="text-input">
-            <i class="fa-solid fa-lock"></i>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              formControlName="password"
-              placeholder="Password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"
-              title="Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters"
-              required
-            /><br />
-          </div>
-          
-          <div style="color: red;"
-          *ngIf="
-            (adminloginForm.get('password')?.invalid &&
-            adminloginForm.controls['password'].dirty) ||
-            adminloginForm.get('password')?.touched
-          "
-        >
-          <div class="invalid-input" style="color: red;">
-            <div *ngIf="adminloginForm.get('password')?.errors?.['required']">
-              *password is required
-            </div>
-            <div *ngIf="adminloginForm.get('password')?.errors?.['pattern']">
-              
-            </div>
-          </div>
-          </div>
-          <button class="login-btn">LOGIN</button>
+            <span class ="text-danger" *ngIf="adminloginForm.controls['email'].dirty && adminloginForm.hasError('required','email')" >*Email Id is required</span>
+            <div class="text-input">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password"  name="password" formControlName="password" placeholder="Password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"
+                title="Must contain at least one  number and one uppercase and lowercase letter, and at least 3 or more characters" required><br>
+                </div>
+                <span class ="text-danger" *ngIf="adminloginForm.controls['password'].dirty && adminloginForm.hasError('required','password')">*Password  is required</span>
+            <button class="login-btn" >LOGIN</button>
         </div>
-      </div>
+    </div>
     </form>
-  </body>
+</body>
+
+
 </html>
