@@ -1,122 +1,43 @@
-<nav class="nav-bar">
-  <img src="assets/image/C i t y.png" width="110" height="100"/>
-<div class="nav-items">
-  <a (click)="go_To('/home')">Home</a>
-  <a (click)="go_To('/aboutus')">About us</a>
-  <a (click)="go_To('/contactus')">Contact</a>
-  <a (click)="go_To('/selectlocation')">Search Buses</a>
-  <a (click)="go_To('/adminlogin')" *ngIf="!isLogedIn">Admin Login</a>
-  <a (click)="go_To('/login')" *ngIf="!isLogedIn">Login</a>
-  <a (click)="logout()" *ngIf="isLogedIn">Logout</a>
-</div>
-</nav>
-  <body>
-<div class="container">
-<div class="userdetails">
-<div class="inputbox">
-<span class="details">From</span> <select name = "source"  required [(ngModel)]= " sourceLocation " >
-  <option value="Ariyalur">Ariyalur</option>
-  <option value="Chennai">Chennai</option>
-  <option value="Coimbatore">Coimbatore</option>
-  <option value="Cuddalore">Cuddalore</option>
-  <option value="Dharmapuri">Dharmapuri</option>
-  <option value="Dindigul">Dindigul</option>
-  <option value="Erode">Erode</option>
-  <option value="Kancheepuram">Kancheepuram</option>
-  <option value="Kanyakumari">Kanyakumari</option>
-  <option value="Karur">Karur</option>
-  <option value="Krishnagiri">Krishnagiri</option>
-  <option value="Madurai">Madurai</option>
-  <option value="Nagapattinam">Nagapattinam</option>
-  <option value="Namakkal">Namakkal</option>
-  <option value="Perambalur">Perambalur</option>
-  <option value="Pudukottai">Pudukottai</option>
-  <option value="Ramanathapuram">Ramanathapuram</option>
-  <option value="Selam">Selam</option>
-  <option value="Sivaganga">Sivaganga</option>
-  <option value="Thanjavur">Thanjavur</option>
-  <option value="The Nilgiris">The Nilgiris</option>
-  <option value="Theni">Theni</option>
-  <option value="Thiruvallur">Thiruvallur</option>
-  <option value="Thiruvannamalai">Thiruvannamalai</option>
-  <option value="Thirunelveli">Thirunelveli</option>
-  <option value="Tiruppur">Tiruppur</option>
-  <option value="Trichirappalli">Trichirappalli</option>
-  <option value="Tuticorin">Tuticorin</option>
-  <option value="Vellore">Vellore</option>
-  <option value="Villupuram">Villupuram</option>
-  <option value="Virudhunagar">Virudhunagar</option>
-</select>
-</div>
-<div class="inputbox">
-  <span class="details">To</span>
- <select name = "destination"  required [(ngModel)] = " destinationLocation " >
-    <option value="Ariyalur">Ariyalur</option>
-    <option value="Chennai">Chennai</option>
-    <option value="Coimbatore">Coimbatore</option>
-    <option value="Cuddalore">Cuddalore</option>
-    <option value="Dharmapuri">Dharmapuri</option>
-    <option value="Dindigul">Dindigul</option>
-    <option value="Erode">Erode</option>
-    <option value="Kancheepuram">Kancheepuram</option>
-    <option value="Kanyakumari">Kanyakumari</option>
-    <option value="Karur">Karur</option>
-    <option value="Krishnagiri">Krishnagiri</option>
-    <option value="Madurai">Madurai</option>
-    <option value="Nagapattinam">Nagapattinam</option>
-    <option value="Namakkal">Namakkal</option>
-    <option value="Perambalur">Perambalur</option>
-    <option value="Pudukottai">Pudukottai</option>
-    <option value="Ramanathapuram">Ramanathapuram</option>
-    <option value="Selam">Selam</option>
-    <option value="Sivaganga">Sivaganga</option>
-    <option value="Thanjavur">Thanjavur</option>
-    <option value="The Nilgiris">The Nilgiris</option>
-    <option value="Theni">Theni</option>
-    <option value="Thiruvallur">Thiruvallur</option>
-    <option value="Thiruvannamalai">Thiruvannamalai</option>
-    <option value="Thirunelveli">Thirunelveli</option>
-    <option value="Tiruppur">Tiruppur</option>
-    <option value="Trichirappalli">Trichirappalli</option>
-    <option value="Tuticorin">Tuticorin</option>
-    <option value="Vellore">Vellore</option>
-    <option value="Villupuram">Villupuram</option>
-    <option value="Virudhunagar">Virudhunagar</option>
-  </select>
-  </div>
-  <div class="inputbox">
-    <span class="details">Date</span> <input type="date" name="date" [min]="minDate" required [(ngModel)]=" dateSelected " />
-    </div>
+<body>
+  <div class="container">
+    <div class="userdetails">
+      <div class="inputbox">
+        <span class="details">From</span>
+        <select name="source" required [(ngModel)]="sourceLocation">
+          <option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </option>
+        </select>
+      </div>
+      <div class="inputbox">
+        <span class="details">To</span>
+        <select name="destination" required [(ngModel)]="destinationLocation">
+          <option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </option>
+        </select>
+      </div>
 
-<!-- <mat-form-field>
-      <mat-label>Date</mat-label>
-      <input
+      <div class="inputbox">
+        <span class="details">Date</span>
+        <input
           type="date"
-          formControlName="selectedDate",
-          [(ngModel)]=" dateSelected "
-      />
-      <mat-error
-          *ngIf="
-          travelsForm.get('selectedDate')?.invalid &&
-          travelsForm.get('selectedDate')?.touched
-          "
+          name="date"
+          [min]="minDate"
+          required
+          [(ngModel)]="dateSelected"
+        />
+      </div>
+    </div>
+    <div class="button">
+      <button
+        [disabled]="searchButtonDisabled()"
+        color="primary"
+        style="margin-top: 20%; padding: 10px 20px"
+        (click)="goTo()"
       >
-          <span
-              *ngIf="travelsForm.get('selectedDate')?.errors?.['required']"
-          >
-              Date is required.
-          </span>
-          <span
-              *ngIf="travelsForm.get('selectedDate')?.errors?.['invalidDateRange']">
-              Invalid date. Date should be chosen from tomorrow
-              onwards.
-          </span>
-      </mat-error>
-  </mat-form-field>
-</div> -->
-</div>
-<div class="button">
-  <button [disabled]="searchBtnDisabled()" color="primary" style="margin-top:20%; padding: 10px 20px;" (click)="goTo()">Search Buses</button>
-</div>
-</div>
+        Search Buses
+      </button>
+    </div>
+  </div>
 </body>
