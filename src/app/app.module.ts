@@ -12,10 +12,11 @@ import { AdminLoginComponent } from './AdminLogin/AdminLogin.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './Footer/Footer.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       ContactusComponent,
       SignUpComponent,
@@ -23,6 +24,7 @@ import { HeaderComponent } from './header/header.component';
       PaymentComponent,
       AdminLoginComponent,
       HeaderComponent,
+      FooterComponent
    ],
   imports: [
     BrowserModule,
