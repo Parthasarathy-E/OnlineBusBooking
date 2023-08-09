@@ -1,5 +1,14 @@
 export const environment = {
   JSONServerBaseURL: 'http://localhost:3000',
+  icon: {
+    download:
+      'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg',
+    check_circle:
+      'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/check_circle/default/48px.svg',
+    cancel:
+      'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/cancel/default/48px.svg',
+    edit: 'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/edit/default/48px.svg',
+  },
   locations: [
     'Ariyalur',
     'Chennai',
