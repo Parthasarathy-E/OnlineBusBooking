@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserAuthService } from '../user-auth.service';
+import { NGXLogger } from 'ngx-logger';
 @Component({
   selector: 'app-Login',
   templateUrl: './Login.component.html',
@@ -35,7 +36,8 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private location: Location,
-    private userAuth: UserAuthService
+    private userAuth: UserAuthService,
+    private  logger:NGXLogger
   ) {}
 
   ngOnInit(): void {
@@ -62,11 +64,17 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.password
     );
     this.userAuth.userSignInStatus.subscribe((result) => {
-      console.warn(result);
       if (result) {
+        this.logger.error(
+          "User" +
+            ' : ' +
+            localStorage.getItem('userId') +
+            ' - Login Successfully'
+        );
         this.loginForm.reset();
         this.location.back();
         this.router.navigate(['/']);
+
       }
     });
   }

@@ -63,6 +63,7 @@ export class ViewTicketDetailsComponent implements OnInit {
       let payload = { ...res1, [this.tid]: this.ticketInfo };
       this.user.updateBookedHistory(payload).subscribe((res) => {
         alert('Your Ticket has been Canceled Successfully...!');
+        
       });
     });
     this.goBack();

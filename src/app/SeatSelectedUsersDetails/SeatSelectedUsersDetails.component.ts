@@ -30,7 +30,7 @@ export class SeatSelectedUsersDetailsComponent implements OnInit {
   ngOnInit() {
     this.userDetailsForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('[A-Za-z]{3,}')]],
-      age: ['', Validators.required, Validators.pattern('[1-9]{2}')]    
+      age: ['', Validators.required, Validators.pattern('[1-9]{2}')]
     });
 
     // let qureyStr = this.route.snapshot.paramMap.get('value');
@@ -48,10 +48,16 @@ export class SeatSelectedUsersDetailsComponent implements OnInit {
     });
   }
   userDetails() {
-    
+
   }
   goTo() {
-    // router
+    // this.logger.error(
+    //   "User" +
+    //   ' : ' +
+    //   localStorage.getItem('userId')+ " Passenger Details  \\n name : " + this.sourceLocation  +
+    //   " \\n Age : " + this.destinationLocation +
+    //   " \\n Gender : " + this.dateSelected
+    // );
     this.user
       .updateSelectedBusDetails(
         Object.assign(this.SelectedSeats, { Seats: this.seatSelected })

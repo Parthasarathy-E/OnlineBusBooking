@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminService } from '../admin.service';
 import { UserService } from '../user.service';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-Payment',
@@ -30,7 +31,8 @@ export class PaymentComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private admin: AdminService,
-    private user: UserService
+    private user: UserService,
+    private logger: NGXLogger //
   ) {}
 
   ngOnInit(): void {
@@ -94,7 +96,9 @@ export class PaymentComponent implements OnInit {
 
       // alert
       // ok -> /mybooking
+
       alert('Booked Successfully !!!');
+
       setTimeout(() => {
         this.router.navigate(['/mybookings']);
       }, 2000);

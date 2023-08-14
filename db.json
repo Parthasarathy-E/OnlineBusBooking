@@ -306,6 +306,16 @@
           "gender": "Male",
           "phoneNumber": 9080756620,
           "email": "partha11@gmail.com"
+        },
+        {
+          "index": 27,
+          "value": true,
+          "booked": true,
+          "name": "Santhip kumar",
+          "age": 12,
+          "gender": "Male",
+          "phoneNumber": 9182736450,
+          "email": "santhip@gmail.com"
         }
       ],
       "Source": "Coimbatore",
@@ -342,19 +352,84 @@
   },
   "selectedBus": [
     {
-      "Bus_Number": 11,
+      "Bus_Number": 6,
       "Date": "2023-08-29",
       "Destination": "Chennai",
       "Seats": [
         {
-          "index": 26,
+          "index": 14,
+          "value": true,
+          "booked": true,
+          "name": "pranav",
+          "age": 17,
+          "gender": "Male",
+          "phoneNumber": 7092648001,
+          "email": "siva@gmail.com"
+        },
+        {
+          "index": 17,
+          "value": true,
+          "booked": true,
+          "name": "Arun",
+          "age": 21,
+          "gender": "Male",
+          "phoneNumber": 9344076563,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 18,
+          "value": true,
+          "booked": true,
+          "name": "Yukash",
+          "age": 21,
+          "gender": "Male",
+          "phoneNumber": 9344076563,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 19,
+          "value": true,
+          "booked": true,
+          "name": "Santhip kumar",
+          "age": 21,
+          "gender": "Male",
+          "phoneNumber": 9080756620,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 20,
+          "value": true,
+          "booked": true,
+          "name": "shankar",
+          "age": 18,
+          "gender": "Male",
+          "phoneNumber": 9080756620,
+          "email": "partha11@gmail.com"
+        },
+        {
+          "index": 27,
+          "value": true,
+          "booked": true,
+          "name": "Santhip kumar",
+          "age": 12,
+          "gender": "Male",
+          "phoneNumber": 9182736450,
+          "email": "santhip@gmail.com"
+        },
+        {
+          "index": 34,
+          "value": true,
+          "booked": false
+        },
+        {
+          "index": 38,
           "value": true,
           "booked": false
         }
       ],
       "Source": "Coimbatore",
-      "Travels_Name": "Shankar Travels",
-      "amount": 100,
+      "Travels_Name": "Abi Travels",
+      "amount": 600,
       "status": true,
       "id": 1
     }
@@ -1288,6 +1363,182 @@
             "gender": "Male",
             "phoneNumber": 7092648001,
             "email": "siva@gmail.com"
+          }
+        ]
+      },
+      "726iu": {
+        "uid": "1001",
+        "status": true,
+        "busDetails": {
+          "Bus_Number": 6,
+          "Date": "2023-08-29",
+          "Destination": "Chennai",
+          "Seats": [
+            {
+              "index": 14,
+              "value": true,
+              "booked": true,
+              "name": "pranav",
+              "age": 17,
+              "gender": "Male",
+              "phoneNumber": 7092648001,
+              "email": "siva@gmail.com"
+            },
+            {
+              "index": 17,
+              "value": true,
+              "booked": true,
+              "name": "Arun",
+              "age": 21,
+              "gender": "Male",
+              "phoneNumber": 9344076563,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 18,
+              "value": true,
+              "booked": true,
+              "name": "Yukash",
+              "age": 21,
+              "gender": "Male",
+              "phoneNumber": 9344076563,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 19,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": 21,
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 20,
+              "value": true,
+              "booked": true,
+              "name": "shankar",
+              "age": 18,
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 27,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": 12,
+              "gender": "Male",
+              "phoneNumber": 9182736450,
+              "email": "santhip@gmail.com"
+            }
+          ],
+          "Source": "Coimbatore",
+          "Travels_Name": "Abi Travels",
+          "amount": 600,
+          "status": true,
+          "id": 5
+        },
+        "Seats": [
+          {
+            "index": 27,
+            "value": true,
+            "booked": true,
+            "name": "Santhip kumar",
+            "age": 12,
+            "gender": "Male",
+            "phoneNumber": 9182736450,
+            "email": "santhip@gmail.com"
+          }
+        ]
+      },
+      "cwqwi": {
+        "uid": "1001",
+        "status": true,
+        "busDetails": {
+          "Bus_Number": 6,
+          "Date": "2023-08-29",
+          "Destination": "Chennai",
+          "Seats": [
+            {
+              "index": 14,
+              "value": true,
+              "booked": true,
+              "name": "pranav",
+              "age": 17,
+              "gender": "Male",
+              "phoneNumber": 7092648001,
+              "email": "siva@gmail.com"
+            },
+            {
+              "index": 17,
+              "value": true,
+              "booked": true,
+              "name": "Arun",
+              "age": 21,
+              "gender": "Male",
+              "phoneNumber": 9344076563,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 18,
+              "value": true,
+              "booked": true,
+              "name": "Yukash",
+              "age": 21,
+              "gender": "Male",
+              "phoneNumber": 9344076563,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 19,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": 21,
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 20,
+              "value": true,
+              "booked": true,
+              "name": "shankar",
+              "age": 18,
+              "gender": "Male",
+              "phoneNumber": 9080756620,
+              "email": "partha11@gmail.com"
+            },
+            {
+              "index": 27,
+              "value": true,
+              "booked": true,
+              "name": "Santhip kumar",
+              "age": 12,
+              "gender": "Male",
+              "phoneNumber": 9182736450,
+              "email": "santhip@gmail.com"
+            }
+          ],
+          "Source": "Coimbatore",
+          "Travels_Name": "Abi Travels",
+          "amount": 600,
+          "status": true,
+          "id": 5
+        },
+        "Seats": [
+          {
+            "index": 27,
+            "value": true,
+            "booked": true,
+            "name": "Santhip kumar",
+            "age": 12,
+            "gender": "Male",
+            "phoneNumber": 9182736450,
+            "email": "santhip@gmail.com"
           }
         ]
       }
