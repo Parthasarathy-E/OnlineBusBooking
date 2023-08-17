@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-SeatSelectedUsersDetails',
@@ -24,13 +25,14 @@ export class SeatSelectedUsersDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
-    private user: UserService
+    private user: UserService,
+    private logger: NGXLogger
   ) {}
 
   ngOnInit() {
     this.userDetailsForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('[A-Za-z]{3,}')]],
-      age: ['', Validators.required, Validators.pattern('[1-9]{2}')]
+      age: ['', Validators.required, Validators.pattern('[1-9]{2}')],
     });
 
     // let qureyStr = this.route.snapshot.paramMap.get('value');
@@ -47,17 +49,16 @@ export class SeatSelectedUsersDetailsComponent implements OnInit {
       this.filteredSeat = this.seatSelected.filter((a: any) => !a.booked);
     });
   }
-  userDetails() {
-
-  }
-  goTo() {
-    // this.logger.error(
-    //   "User" +
-    //   ' : ' +
-    //   localStorage.getItem('userId')+ " Passenger Details  \\n name : " + this.sourceLocation  +
-    //   " \\n Age : " + this.destinationLocation +
-    //   " \\n Gender : " + this.dateSelected
-    // );
+  userDetails() {}
+  navigateTo() {
+    let log = Object.assign(
+      {},
+      {
+        user: localStorage.getItem('userId'),
+        passangerDeatils: this.filteredSeat,
+      }
+    );
+    this.logger.error(log);
     this.user
       .updateSelectedBusDetails(
         Object.assign(this.SelectedSeats, { Seats: this.seatSelected })

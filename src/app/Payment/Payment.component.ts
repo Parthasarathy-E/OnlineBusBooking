@@ -40,7 +40,10 @@ export class PaymentComponent implements OnInit {
       name: ['', Validators.required, Validators.pattern('[a-zA-Z ]*')],
       cardNumber: [
         '',
-        [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}')],
+        [
+          Validators.required,
+          Validators.pattern('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}'),
+        ],
       ],
       expiryMonth: ['', [Validators.required, Validators.pattern('[1-9]{2}')]],
       expiryYear: ['', [Validators.required, Validators.pattern('[0-9]{4}')]],
@@ -56,7 +59,7 @@ export class PaymentComponent implements OnInit {
     );
     this.currId = JSON.parse(String(localStorage.getItem('selectedBus')));
   }
-  async goTo() {
+  async navigateTo() {
     let selectedSeats = this.userDetails.Seats.filter((a: any) => !a.booked);
     if (selectedSeats.length > 0) {
       this.currId.Seats = this.userDetails.Seats.map((a: any) =>
@@ -86,16 +89,22 @@ export class PaymentComponent implements OnInit {
         this.user.getAllBookingHistory().subscribe((res) => {
           allBooking = Object.assign({}, res);
         });
+        let ticketId = Math.random().toString(36).substring(2, 7);
         this.user
           .updateBookedHistory({
             ...allBooking,
-            [Math.random().toString(36).substring(2, 7)]: addBooking,
+            [ticketId]: addBooking,
           })
           .subscribe((res) => console.log(res));
+        this.logger.error(
+          'User' +
+            ' : ' +
+            localStorage.getItem('userId') +
+            ' ~ Booking Successful ( ' +
+            ticketId +
+            ' )'
+        );
       });
-
-      // alert
-      // ok -> /mybooking
 
       alert('Booked Successfully !!!');
 

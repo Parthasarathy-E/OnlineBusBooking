@@ -1,18 +1,22 @@
-
-  <body>
+<body>
   <div class="container">
-<div class="title">
-  Passenger
-</div>
-<br>
-  <hr class="solid">
-<form action="/home"   *ngFor="let seat of filteredSeat">
-  <div class="userdetails">
-    <div class="inputbox">
-      <span class="details">Passenger Name</span> <input type="text" name="name"   [value]="seat.name" [(ngModel)]="seat.name"
-         name="name" required>
-    </div>
-    <!-- <div style="color: red;"
+    <div class="title">Passenger</div>
+    <br />
+    <hr class="solid" />
+    <form action="/home" *ngFor="let seat of filteredSeat">
+      <div class="userdetails">
+        <div class="inputbox">
+          <span class="details">Passenger Name</span>
+          <input
+            type="text"
+            name="name"
+            [value]="seat.name"
+            [(ngModel)]="seat.name"
+            name="name"
+            required
+          />
+        </div>
+        <!-- <div style="color: red;"
           *ngIf="
             (userDetailsForm.get('name')?.invalid &&
             userDetailsForm.controls['name'].dirty) ||
@@ -29,13 +33,28 @@
                   </div>
                   </div> -->
 
-    <div class="inputbox">
-      <span class="details">Seat</span> <input type="text" name="seat" required [value]="seat.index" readonly>
-    </div>
-    <div class="inputbox">
-      <span class="details">Age</span> <input type="number" min="1"   name="age" id="age"  required [(ngModel)]="seat.age">
-    </div>
-    <!-- <div style="color: red;"
+        <div class="inputbox">
+          <span class="details">Seat</span>
+          <input
+            type="text"
+            name="seat"
+            required
+            [value]="seat.index"
+            readonly
+          />
+        </div>
+        <div class="inputbox">
+          <span class="details">Age</span>
+          <input
+            type="number"
+            min="1"
+            name="age"
+            id="age"
+            required
+            [(ngModel)]="seat.age"
+          />
+        </div>
+        <!-- <div style="color: red;"
           *ngIf="
             (userDetailsForm.get('age')?.invalid &&
             userDetailsForm.controls['age'].dirty) ||
@@ -53,21 +72,22 @@
                   </div>
  -->
 
-    <div class="inputbox">
-      <span class="details">Gender</span> <select name= "Gender" required [(ngModel)]="seat.gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="others">Others</option>
-      </select>
+        <div class="inputbox">
+          <span class="details">Gender</span>
+          <select name="Gender" required [(ngModel)]="seat.gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <hr class="solid" />
+    </form>
+
+    <div class="btn">
+      <button (click)="navigateTo()" id="submit">Submit</button>
+      <!-- <input type="submit" value="Submit" id="submit"> -->
     </div>
   </div>
-  <br>
-  <hr class="solid">
-</form>
-
-  <div class="btn">
-    <button (click)="goTo()" id="submit">Submit</button>
-    <!-- <input type="submit" value="Submit" id="submit"> -->
-  </div>
-</div>
 </body>

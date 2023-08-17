@@ -5,58 +5,71 @@
     </header>
 
     <div class="passenger-section">
-      <h2>{{ ticketInfo.busDetails.Source + ' - ' + ticketInfo.busDetails.Date + ' - ' + ticketInfo.busDetails.Destination  }}
+      <h2>
+        {{
+          ticketInfo.busDetails.Source +
+            " - " +
+            ticketInfo.busDetails.Date +
+            " - " +
+            ticketInfo.busDetails.Destination
+        }}
       </h2>
       <table mat-table [dataSource]="ticketInfo.Seats" class="mat-elevation-z8">
         <ng-container matColumnDef="Seat_No">
-          <th  *matHeaderCellDef>Seat No</th>
+          <th *matHeaderCellDef>Seat No</th>
           <td mat-cell *matCellDef="let element">{{ element.index }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Passenger_Name">
-          <th  *matHeaderCellDef>Passenger Name</th>
+          <th *matHeaderCellDef>Passenger Name</th>
           <td mat-cell *matCellDef="let element">{{ element.name }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Age">
-          <th  *matHeaderCellDef>Age</th>
+          <th *matHeaderCellDef>Age</th>
           <td mat-cell *matCellDef="let element">{{ element.age }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Gender">
-          <th  *matHeaderCellDef>Gender</th>
+          <th *matHeaderCellDef>Gender</th>
           <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Amount">
-          <th  *matHeaderCellDef>Amount</th>
-          <td mat-cell *matCellDef="let element">{{ ticketInfo.busDetails.amount}}</td>
+          <th *matHeaderCellDef>Amount</th>
+          <td mat-cell *matCellDef="let element">
+            {{ ticketInfo.busDetails.amount }}
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
       </table>
     </div>
 
     <div class="contact-details">
       <h3>Contact Details</h3>
-      <p>Phone Number  :    {{ ticketInfo.Seats[0].phoneNumber }}</p>
+      <p>Phone Number : {{ ticketInfo.Seats[0].phoneNumber }}</p>
 
-       <p >Email  :   {{ ticketInfo.Seats[0].email }}      </p>
+      <p>Email : {{ ticketInfo.Seats[0].email }}</p>
     </div>
-    <div class="buttons" >
-      <button class="primary-btn" [disabled]="checkCancelDate()" (click)="cancelTicket()">Cancel Ticket</button>
-       <button class="secondary-btn" (click)="goBack()">Go to My Booking</button>
+    <div class="buttons">
+      <button
+        class="primary-btn"
+        [disabled]="checkCancelDate()"
+        (click)="cancelTicket()"
+      >
+        Cancel Ticket
+      </button>
+      <button class="secondary-btn" (click)="navigateBack()">
+        Go to My Booking
+      </button>
     </div>
-    <div >
+    <div>
       <p>Cannot cancel ticket on the last day</p>
     </div>
   </div>
 </body>
-
-
-
 
 <!-- {{ ticketInfo.busDetails.Travels_Name }}
 {{ ticketInfo.busDetails.Source + ' - ' + ticketInfo.busDetails.Date + ' - ' + ticketInfo.busDetails.Destination  }}
@@ -64,4 +77,3 @@
 
 {{ ticketInfo.Seats[0].phoneNumber }}
 {{ ticketInfo.Seats[0].email }} -->
-

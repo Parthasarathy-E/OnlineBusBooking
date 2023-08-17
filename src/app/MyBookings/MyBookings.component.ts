@@ -54,7 +54,7 @@ export class MyBookingsComponent implements OnInit {
       ? 'Expired'
       : 'View';
   }
-  goTo(Ticket_Id: String) {
+  navigateTo(Ticket_Id: String) {
     this.router.navigate(['/viewticket/', { tid: Ticket_Id }]);
   }
 }
