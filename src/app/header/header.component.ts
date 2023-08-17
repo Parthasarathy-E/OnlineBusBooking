@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NGXLogger } from 'ngx-logger'; //
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private logger: NGXLogger //
+  ) {}
   logOut(accountType: string) {
+    this.logger.error(
+      accountType +
+        ' : ' +
+        localStorage.getItem(accountType) +
+        ' - Logout Successfully'
+    ); // ****
     localStorage.removeItem(accountType);
     alert('Logout Successfully');
     setTimeout(() => {

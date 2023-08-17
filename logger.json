@@ -1,0 +1,84 @@
+{
+  "logger": [
+    {
+      "level": 5,
+      "additional": [],
+      "message": "userId : 1001 - Logout Successfully",
+      "timestamp": "2023-08-09T19:14:31.168Z",
+      "fileName": "main.js",
+      "lineNumber": 4004,
+      "columnNumber": 17,
+      "id": 1
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User Selected Location  \\n Source : Coimbatore \\n Destination : Chennai \\n Date : 2023-08-29",
+      "timestamp": "2023-08-14T16:59:57.915Z",
+      "fileName": "main.js",
+      "lineNumber": 2863,
+      "columnNumber": 17,
+      "id": 2
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User : 1001 Selected Location  \\n Source : Coimbatore \\n Destination : Chennai \\n Date : 2023-08-29",
+      "timestamp": "2023-08-14T17:03:30.425Z",
+      "fileName": "main.js",
+      "lineNumber": 2863,
+      "columnNumber": 17,
+      "id": 3
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User : 1001 Selected Location  \\n Source : Coimbatore \\n Destination : Chennai \\n Date : 2023-08-29",
+      "timestamp": "2023-08-14T17:09:20.867Z",
+      "fileName": "main.js",
+      "lineNumber": 2867,
+      "columnNumber": 17,
+      "id": 4
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User : 1001 Selected Travels  : Abi Travels",
+      "timestamp": "2023-08-14T17:09:23.806Z",
+      "fileName": "main.js",
+      "lineNumber": 2712,
+      "columnNumber": 17,
+      "id": 5
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User : 1001 Selected Seats  : [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]",
+      "timestamp": "2023-08-14T17:09:30.857Z",
+      "fileName": "main.js",
+      "lineNumber": 3036,
+      "columnNumber": 17,
+      "id": 6
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User : 1001 Selected Seats  : 14,17,18,19,20,27,34",
+      "timestamp": "2023-08-14T17:12:47.836Z",
+      "fileName": "main.js",
+      "lineNumber": 3036,
+      "columnNumber": 17,
+      "id": 7
+    },
+    {
+      "level": 5,
+      "additional": [],
+      "message": "User : 1001 Selected Seats  : 34,38",
+      "timestamp": "2023-08-14T17:14:14.308Z",
+      "fileName": "main.js",
+      "lineNumber": 3036,
+      "columnNumber": 17,
+      "id": 8
+    }
+  ]
+}

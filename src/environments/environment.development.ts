@@ -1,5 +1,6 @@
 export const environment = {
   JSONServerBaseURL: 'http://localhost:3000',
+  loggerURL: 'http://localhost:3030/logger',
   icon: {
     download:
       'https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg',

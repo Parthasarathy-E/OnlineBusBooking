@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { format } from 'date-fns';
 import { environment } from 'src/environments/environment';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-SelectLocation',
@@ -40,7 +41,8 @@ export class SelectLocationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private logger :NGXLogger
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +67,13 @@ export class SelectLocationComponent implements OnInit {
     return disabled;
   }
   goTo() {
+    this.logger.error(
+      "User" +
+      ' : ' +
+      localStorage.getItem('userId')+ " Selected Location  \\n Source : " + this.sourceLocation  +
+      " \\n Destination : " + this.destinationLocation +
+      " \\n Date : " + this.dateSelected
+    );
     this.router.navigate([
       '/selectbus',
       {

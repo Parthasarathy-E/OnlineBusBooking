@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../admin.service';
 import { UserService } from '../user.service';
+import { NGXLogger } from 'ngx-logger';
 @Component({
   selector: 'app-SelectBus',
   templateUrl: './SelectBus.component.html',
@@ -34,7 +35,8 @@ export class SelectBusComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private admin: AdminService,
-    private user: UserService
+    private user: UserService,
+    private logger:NGXLogger
   ) {}
 
   ngOnInit() {
@@ -56,6 +58,11 @@ export class SelectBusComponent implements OnInit {
     });
   }
   bookbus(Bus: any) {
+    this.logger.error(
+      "User" +
+      ' : ' +
+      localStorage.getItem('userId')+ " Selected Travels  : " + Bus.Travels_Name
+    );
     this.user
       .setSelectedBus(Object.assign(Bus, { id: 1 }))
       .subscribe((res) => console.log(res));

@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../user.service';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-SelectSeat',
@@ -19,7 +20,8 @@ export class SelectSeatComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
-    private user: UserService
+    private user: UserService,
+    private logger : NGXLogger
   ) {}
 
   ngOnInit() {
@@ -40,6 +42,11 @@ export class SelectSeatComponent implements OnInit {
     seat.value = !seat.value;
   }
   bookBus() {
+    this.logger.error(
+      "User" +
+      ' : ' +
+      localStorage.getItem('userId')+ " Selected Seats  : " + this.seats.filter((a) => a.value && !a.booked).map((seat)=>seat.index)
+    );
     this.user
       .updateSelectedBusDetails(
         Object.assign(this.SelectedBus, {
