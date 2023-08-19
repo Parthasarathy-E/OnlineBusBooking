@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 import { environment } from 'src/environments/environment.development';
+import { NGXLogger } from 'ngx-logger';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-AdminDashboard',
@@ -45,6 +47,7 @@ export class AdminDashboardComponent implements OnInit {
     private router: Router,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
+    private logger: NGXLogger,
     private admin: AdminService
   ) {
     iconRegistry.addSvgIcon(
@@ -67,7 +70,7 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.admin.getBusList().subscribe((res) => {
-      this.BUS_DATA = res;
+      this.BUS_DATA = JSON.parse(JSON.stringify(res));
     });
   }
   addTravels(params: any) {
@@ -75,9 +78,18 @@ export class AdminDashboardComponent implements OnInit {
   }
   toggleBusStatus(id: any, value: any) {
     this.admin.toggleBusStatus(id, value);
-    this.ngOnInit();
+    this.logger.error(
+      'Bus :- ' +
+        id +
+        ' modified to ' +
+        (value ? 'active' : 'inactive') +
+        ' status'
+    );
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 2000);
   }
-  download(element: any) {
+  downloadPDF(element: any) {
     let seatData = element.Seats;
     let ticketDetails = seatData.map((a: any) =>
       Object.values(
@@ -94,6 +106,8 @@ export class AdminDashboardComponent implements OnInit {
         )
       )
     );
+    let fileName =
+      element.Travels_Name + ' - ' + element.Date + ' - passanger list.pdf';
     const doc = new jsPDF();
     doc.setFontSize(20);
     doc.text(element.Travels_Name, 105, 10, { align: 'center' });
@@ -115,14 +129,17 @@ export class AdminDashboardComponent implements OnInit {
       startY: 30,
       didDrawPage: (dataArg: any) => {},
     });
-    doc.save('table.pdf');
-  }
-  openAction(element: any, action: string) {
-    console.log(element, action);
-    switch (action) {
-      case 'download':
-        this.download(element);
-    }
+    doc.save(fileName);
+    let aid = localStorage.getItem('adminId');
+    let downloadDateAndTime = format(new Date(), 'yyyy-MM-dd hh:mm:ss a');
+    this.logger.error(
+      'Admin - ' +
+        aid +
+        ' downloaded ' +
+        element.Travels_Name +
+        "'s passenger list on " +
+        downloadDateAndTime
+    );
   }
   // applyFilter(event: Event) {
   //   const filterValue = (event.target as HTMLInputElement).value;

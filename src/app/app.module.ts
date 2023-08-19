@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './Footer/Footer.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { environment } from 'src/environments/environment.development';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -44,4 +45,10 @@ import { environment } from 'src/environments/environment.development';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  // constructor(private router: Router) {
+  //   router.events.subscribe((val) => {
+  //     console.log(val);
+  //   });
+  // }
+}

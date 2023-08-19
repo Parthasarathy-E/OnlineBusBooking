@@ -114,6 +114,24 @@
       "password": "sankar@123",
       "confirmPassword": "",
       "id": 12
+    },
+    {
+      "name": "user",
+      "email": "user1234@mail.com",
+      "mobileNumber": 8976589790,
+      "password": "user@1234",
+      "confirmPassword": "",
+      "uid": 2555.84950614267,
+      "id": 13
+    },
+    {
+      "name": "userr",
+      "email": "user1235@mail.com",
+      "mobileNumber": 8976589790,
+      "password": "user@12345",
+      "confirmPassword": "",
+      "uid": 2931,
+      "id": 14
     }
   ],
   "BusList": [
@@ -332,7 +350,7 @@
       "Source": "Coimbatore ",
       "Travels_Name": "Sky Travels",
       "amount": 550,
-      "status": false,
+      "status": true,
       "id": 6
     },
     {

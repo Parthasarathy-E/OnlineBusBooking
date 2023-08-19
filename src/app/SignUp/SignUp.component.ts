@@ -30,24 +30,18 @@ export class SignUpComponent implements OnInit {
         ],
       ],
       mobileNumber: ['', Validators.required, Validators.pattern('[1-9]{10}')],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(''),
-        ],
-      ],
-      confirmPassword: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(''),
-        ],
-      ],
+      password: ['', [Validators.required, Validators.pattern('')]],
+      confirmPassword: ['', [Validators.required, Validators.pattern('')]],
     });
   }
+  generateUserId() {
+    return Math.random() * (9999 - 1000) + 1000;
+  }
   signUp() {
-    this.userAuth.userSignUp(this.signupForm.value);
+    let userData = Object.assign(this.signupForm.value, {
+      uid: Math.floor(this.generateUserId()),
+    });
+    this.userAuth.userSignUp(userData);
     this.signupForm.reset();
   }
 }
