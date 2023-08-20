@@ -15,8 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './Footer/Footer.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { environment } from 'src/environments/environment.development';
-import { Router } from '@angular/router';
-
+import { Event, Router, RoutesRecognized } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,9 +45,48 @@ import { Router } from '@angular/router';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  // constructor(private router: Router) {
-  //   router.events.subscribe((val) => {
-  //     console.log(val);
-  //   });
-  // }
+  private isUserAuthRequired: Array<any> = [
+    'mybookings',
+    'payment',
+    'viewticket',
+  ];
+  private isAdminAuthRequired: Array<any> = ['admindashboard', 'addtravels'];
+  private isUserLoggedIn = localStorage.getItem('userId') != null;
+  private isAdminLoggedIn = localStorage.getItem('adminId') != null;
+  constructor(private router: Router) {
+    this.routeEvent(this.router);
+  }
+  routeEvent(router: Router) {
+    router.events.subscribe((e) => {
+      if (e instanceof RoutesRecognized) {
+        if (this.checkUserAuthRequired(e.url)) {
+          this.router.navigate(['/login']);
+        }
+        if (this.checkAdminAuthRequired(e.url)) {
+          this.router.navigate(['/adminlogin']);
+        }
+        if (this.checkPageAccess(e.url)) {
+          this.router.navigate(['/noaccess']);
+        }
+      }
+    });
+  }
+  checkPageAccess(url: string) {
+    let isRestrictedPage =
+      (this.isUserLoggedIn && this.checkAdminAuthRequired(url)) ||
+      (this.isAdminLoggedIn && this.checkUserAuthRequired(url));
+    return isRestrictedPage;
+  }
+  checkUserAuthRequired(url: string) {
+    return (
+      this.isUserAuthRequired.some((route) => url.includes(route)) &&
+      !this.isUserLoggedIn
+    );
+  }
+  checkAdminAuthRequired(url: string) {
+    return (
+      this.isAdminAuthRequired.some((route) => url.includes(route)) &&
+      !this.isAdminLoggedIn
+    );
+  }
 }
