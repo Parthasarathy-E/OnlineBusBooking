@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AdminService } from '../admin.service';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-AddTravels',
@@ -30,7 +31,8 @@ export class AddTravelsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
-    private admin: AdminService
+    private admin: AdminService,
+    private logger: NGXLogger
   ) {}
 
   ngOnInit() {
@@ -49,10 +51,12 @@ export class AddTravelsComponent implements OnInit {
       this.admin
         .updateBusById(this.busData.id, this.busData)
         .subscribe((res) => {
+          this.logger.error(busName + ' Edited successfully');
           alert(busName + ' Updated !!!');
         });
     } else {
       this.admin.addBusToList(this.busData).subscribe((res) => {
+        this.logger.error(busName + ' Added successfully');
         alert(busName + ' Added !!!');
       });
     }

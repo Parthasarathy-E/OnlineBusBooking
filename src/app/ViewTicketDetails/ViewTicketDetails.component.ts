@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { AdminService } from '../admin.service';
 import { UserService } from '../user.service';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-ViewTicketDetails',
@@ -28,7 +29,8 @@ export class ViewTicketDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private admin: AdminService,
-    private user: UserService
+    private user: UserService,
+    private logger: NGXLogger
   ) {}
 
   ngOnInit() {
@@ -62,13 +64,20 @@ export class ViewTicketDetailsComponent implements OnInit {
     this.user.getAllBookingHistory().subscribe((res1) => {
       let payload = { ...res1, [this.tid]: this.ticketInfo };
       this.user.updateBookedHistory(payload).subscribe((res) => {
+        this.logger.error(
+          'User' +
+            ' : ' +
+            localStorage.getItem('userId') +
+            ' ~ Canceled Successful ( ' +
+            this.tid +
+            ' )'
+        );
         alert('Your Ticket has been Canceled Successfully...!');
-        
       });
     });
-    this.goBack();
+    this.navigateBack();
   }
-  goBack() {
+  navigateBack() {
     this.router.navigate(['/mybookings']);
   }
 }

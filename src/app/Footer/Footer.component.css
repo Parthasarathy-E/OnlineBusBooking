@@ -4,16 +4,16 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .example-container {
   box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
-   position: sticky;
+  position: sticky;
   background-color: aquamarine;
   bottom: 110px;
-  font-size:18px;
-  left:0;
+  font-size: 18px;
+  left: 0;
   margin: 24px;
   max-width: 800px;
   z-index: 1001;
@@ -26,7 +26,7 @@ body {
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color:#ffffff;
+  background-color: #ffffff;
 }
 .nav-items a {
   text-decoration: none;
@@ -35,25 +35,25 @@ body {
   color: rgb(49, 101, 197);
   margin-left: 55px;
 }
-.nav-items a:hover{
+.nav-items a:hover {
   color: rgba(5, 5, 82, 0.945);
 }
 .nav-bar button {
   padding: 12px 28px;
   border: none;
-  font-size:18px;
+  font-size: 18px;
   outline-width: 0;
   color: rgba(5, 5, 82, 0.945);
   border-radius: 24px;
   cursor: pointer;
   font-weight: 400;
-  background:white;
+  background: white;
 }
-.nounderline a{
+.nounderline a {
   text-decoration: none;
 }
-.nav-bar button:hover{
-  background-color:rgba(5, 5, 82, 0.945);
+.nav-bar button:hover {
+  background-color: rgba(5, 5, 82, 0.945);
   color: floralwhite;
 }
 
@@ -64,7 +64,6 @@ body {
   height: 60vh;
 }
 .hero-img-container {
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -108,94 +107,96 @@ body {
   font-weight: 400;
   background-image: hsla(259, 82%, 58%, 1);
 
-  background: linear-gradient(90deg, hsla(259, 82%, 58%, 1) 0%, hsla(8, 98%, 59%, 1) 100%);
-
+  background: linear-gradient(
+    90deg,
+    hsla(259, 82%, 58%, 1) 0%,
+    hsla(8, 98%, 59%, 1) 100%
+  );
 }
 
-
-.row{
-	display: flex;
-	flex-wrap: wrap;
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
-.footer{
-	background-color: #24262b;
+.footer {
+  background-color: #24262b;
   padding: 30px 0;
-  position:static;
+  position: fixed;
   right: 0;
   left: 0;
-  height: 40vh;
-  bottom:0;
+  height: 10%;
+  bottom: 0;
   border-radius: 0;
+  transition-duration: 0.3s;
 }
-.footer-col{
-   width: 25%;
-   padding: 0 25px;
-
-
+footer:hover {
+  height: auto;
 }
-.footer-col h4{
-	font-size: 18px;
-	color: #ffffff;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 500;
-	position: relative;
+.footer-col {
+  width: 25%;
+  padding: 0 25px;
 }
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:0;
-	bottom: -10px;
-	background-color: #e91e63;
-	height: 2px;
-	box-sizing: border-box;
-	width: 50px;
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
 }
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
-
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
 }
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #ffffff;
-	text-decoration: none;
-	font-weight: 300;
-	color: #bbbbbb;
-	display: block;
-	transition: all 0.3s ease;
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
 }
-
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
-}
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
 }
 
-@media(max-width: 767px){
-  .footer-col{
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .footer-col {
     width: 50%;
     margin-bottom: 30px;
+  }
 }
-}
-@media(max-width: 574px){
-  .footer-col{
+@media (max-width: 574px) {
+  .footer-col {
     width: 100%;
+  }
 }
-}
-

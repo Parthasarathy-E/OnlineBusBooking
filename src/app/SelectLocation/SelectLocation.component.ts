@@ -42,7 +42,7 @@ export class SelectLocationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private logger :NGXLogger
+    private logger: NGXLogger
   ) {}
 
   ngOnInit(): void {
@@ -66,13 +66,17 @@ export class SelectLocationComponent implements OnInit {
       this.dateSelected == null;
     return disabled;
   }
-  goTo() {
+  navigateTo() {
     this.logger.error(
-      "User" +
-      ' : ' +
-      localStorage.getItem('userId')+ " Selected Location  \\n Source : " + this.sourceLocation  +
-      " \\n Destination : " + this.destinationLocation +
-      " \\n Date : " + this.dateSelected
+      'User' +
+        ' : ' +
+        localStorage.getItem('userId') +
+        ' Selected Location  \\n Source : ' +
+        this.sourceLocation +
+        ' \\n Destination : ' +
+        this.destinationLocation +
+        ' \\n Date : ' +
+        this.dateSelected
     );
     this.router.navigate([
       '/selectbus',

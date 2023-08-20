@@ -8,6 +8,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
+import { NGXLogger } from 'ngx-logger';
 @Component({
   selector: 'app-BookingConfirmation',
   templateUrl: './BookingConfirmation.component.html',
@@ -37,7 +38,8 @@ export class BookingConfirmationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private user: UserService
+    private user: UserService,
+    private logger: NGXLogger
   ) {}
   ngOnInit() {
     this.bookedSeats = this.formBuilder.group({
@@ -69,12 +71,20 @@ export class BookingConfirmationComponent implements OnInit {
   }
   checkAndNavigate() {
     if (this.isLogedIn) {
-      this.goTo();
+      this.navigateTo();
     } else {
       this.router.navigate(['/login']);
     }
   }
-  goTo() {
+  navigateTo() {
+    let log = Object.assign(
+      {},
+      {
+        user: localStorage.getItem('userId'),
+        SelectedDetail: this.SelectedDetail,
+      }
+    );
+    this.logger.error(log);
     this.user.updateSelectedBusDetails(this.SelectedDetail).subscribe((res) => {
       console.log(res);
     });

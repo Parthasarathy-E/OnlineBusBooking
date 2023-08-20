@@ -1,41 +1,59 @@
-
-
-<table mat-table [dataSource]="filteredBusList" class="mat-elevation-z8">
+<div class="no-data-found" *ngIf="filteredBusList.length == 0">
+  <p>
+    Onward Services not available for this Place / Date <br />
+    PLEASE CLICK ON MODIFY SEARCH
+  </p>
+  <button (click)="navigateTo('/selectlocation')">Modify Seach</button>
+</div>
+<table
+  mat-table
+  [dataSource]="filteredBusList"
+  *ngIf="filteredBusList.length > 0"
+  class="mat-elevation-z8"
+>
   <ng-container matColumnDef="Bus_Number">
-    <th  *matHeaderCellDef>No.</th>
+    <th *matHeaderCellDef>No.</th>
     <td mat-cell *matCellDef="let element">{{ element.Bus_Number }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Travels_Name">
-    <th  *matHeaderCellDef>Name</th>
+    <th *matHeaderCellDef>Name</th>
     <td mat-cell *matCellDef="let element">{{ element.Travels_Name }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Source">
-    <th  *matHeaderCellDef>Source</th>
+    <th *matHeaderCellDef>Source</th>
     <td mat-cell *matCellDef="let element">{{ element.Source }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Destination">
-    <th  *matHeaderCellDef>Destination</th>
+    <th *matHeaderCellDef>Destination</th>
     <td mat-cell *matCellDef="let element">{{ element.Destination }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Date">
-    <th  *matHeaderCellDef>Date</th>
+    <th *matHeaderCellDef>Date</th>
     <td mat-cell *matCellDef="let element">{{ element.Date }}</td>
   </ng-container>
   <ng-container matColumnDef="Amount">
-    <th  *matHeaderCellDef>Amount</th>
+    <th *matHeaderCellDef>Amount</th>
     <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
   </ng-container>
   <div class="btn">
-  <ng-container matColumnDef="BookBtn">
-    <th  *matHeaderCellDef>Activity</th>
-    <td mat-cell *matCellDef="let element"><button (click)="bookbus(element)" type="submit" id ="button" style="text-decoration:none;">Book</button></td>
-  </ng-container>
-</div>
+    <ng-container matColumnDef="BookBtn">
+      <th *matHeaderCellDef>Activity</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          (click)="bookbus(element)"
+          type="submit"
+          id="button"
+          style="text-decoration: none"
+        >
+          Book
+        </button>
+      </td>
+    </ng-container>
+  </div>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
 </table>

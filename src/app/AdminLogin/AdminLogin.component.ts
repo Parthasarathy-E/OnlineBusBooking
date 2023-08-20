@@ -22,8 +22,14 @@ export class AdminLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.adminloginForm = this.formBuilder.group({
-      email: ['', [Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$')]],
-      password: ['',[ Validators.required,Validators.pattern('')]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'),
+        ],
+      ],
+      password: ['', [Validators.required, Validators.pattern('')]],
     });
   }
   login() {
@@ -31,8 +37,7 @@ export class AdminLoginComponent implements OnInit {
       this.adminloginForm.value.email,
       this.adminloginForm.value.password
     );
-    this.userAuth.userSignInStatus.subscribe((result) => {
-      console.warn(result);
+    this.userAuth.adminSignInStatus.subscribe((result) => {
       if (result) {
         this.adminloginForm.reset();
         this.router.navigate(['/admindashboard']);

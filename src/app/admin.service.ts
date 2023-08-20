@@ -20,7 +20,7 @@ export class AdminService {
     return this.helper.get('/BusList');
   }
   getBusById(id: any) {
-    return this.helper.get('/BusList' + id);
+    return this.helper.get('/BusList/' + id);
   }
   updateBusById(id: any, value: any) {
     return this.helper.patch('/BusList/' + id, value);

@@ -1,28 +1,31 @@
-
-<body background = "assets/image/busSeats.png">
+<body background="assets/image/busSeats.png">
   <div class="bus">
     <div class="select">
       <h1>Please Select a Seat</h1>
     </div>
     <div class="exit"></div>
-    <br>
+    <br />
     <mat-grid-list cols="5" rowHeight="3:2">
       <mat-grid-tile *ngFor="let seat of seats">
         <button
           [disabled]="seat.booked"
           (click)="selectSeat(seat)"
-          [ngClass]="{ green: !seat.value, blue: seat.value, black: seat.booked }"
+          [ngClass]="{
+            green: !seat.value,
+            blue: seat.value,
+            black: seat.booked
+          }"
         >
           {{ seat.index }}
         </button>
         <mat-grid-tile *ngIf="(seat.index - 2) % 4 == 0"></mat-grid-tile>
       </mat-grid-tile>
     </mat-grid-list>
-    <br>
+    <br />
     <div class="exit"></div>
-    <br>
+    <br />
     <div class="btn">
-    <button (click)="bookBus()">Book</button>
+      <button (click)="bookBus()">Book</button>
     </div>
   </div>
 </body>

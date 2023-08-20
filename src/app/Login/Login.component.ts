@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private location: Location,
     private userAuth: UserAuthService,
-    private  logger:NGXLogger
+    private logger: NGXLogger
   ) {}
 
   ngOnInit(): void {
@@ -49,13 +49,7 @@ export class LoginComponent implements OnInit {
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'),
         ],
       ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(''),
-        ],
-      ],
+      password: ['', [Validators.required, Validators.pattern('')]],
     });
   }
   login() {
@@ -65,16 +59,9 @@ export class LoginComponent implements OnInit {
     );
     this.userAuth.userSignInStatus.subscribe((result) => {
       if (result) {
-        this.logger.error(
-          "User" +
-            ' : ' +
-            localStorage.getItem('userId') +
-            ' - Login Successfully'
-        );
         this.loginForm.reset();
         this.location.back();
         this.router.navigate(['/']);
-
       }
     });
   }

@@ -1,52 +1,69 @@
-
-
 <table mat-table [dataSource]="filteredBusList" class="mat-elevation-z8">
   <ng-container matColumnDef="Ticket_Id">
-    <th  *matHeaderCellDef>Ticket Id</th>
+    <th *matHeaderCellDef>Ticket Id</th>
     <td mat-cell *matCellDef="let element">{{ element }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Travels_Name">
-    <th  *matHeaderCellDef>Travels Name</th>
-    <td mat-cell *matCellDef="let element">{{ allBooking[element].busDetails.Travels_Name }}</td>
+    <th *matHeaderCellDef>Travels Name</th>
+    <td mat-cell *matCellDef="let element">
+      {{ allBooking[element].busDetails.Travels_Name }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="Source">
-    <th  *matHeaderCellDef>Source</th>
-    <td mat-cell *matCellDef="let element">{{ allBooking[element].busDetails.Source }}</td>
+    <th *matHeaderCellDef>Source</th>
+    <td mat-cell *matCellDef="let element">
+      {{ allBooking[element].busDetails.Source }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="Destination">
-    <th  *matHeaderCellDef>Destination</th>
-    <td mat-cell *matCellDef="let element">{{ allBooking[element].busDetails.Destination }}</td>
+    <th *matHeaderCellDef>Destination</th>
+    <td mat-cell *matCellDef="let element">
+      {{ allBooking[element].busDetails.Destination }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="Date">
-    <th  *matHeaderCellDef>Date</th>
-    <td mat-cell *matCellDef="let element">{{ allBooking[element].busDetails.Date }}</td>
+    <th *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element">
+      {{ allBooking[element].busDetails.Date }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="Amount">
-    <th  *matHeaderCellDef>Amount</th>
-    <td mat-cell *matCellDef="let element">{{ allBooking[element].Seats.length * allBooking[element].busDetails.amount}}</td>
+    <th *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">
+      {{
+        allBooking[element].Seats.length * allBooking[element].busDetails.amount
+      }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="Seats">
-    <th  *matHeaderCellDef>No.of Seats</th>
-    <td mat-cell *matCellDef="let element">{{ allBooking[element].Seats.length }}</td>
+    <th *matHeaderCellDef>No.of Seats</th>
+    <td mat-cell *matCellDef="let element">
+      {{ allBooking[element].Seats.length }}
+    </td>
   </ng-container>
 
   <div class="btn">
-  <ng-container matColumnDef="Action">
-    <th  *matHeaderCellDef>Action</th>
-    <td mat-cell *matCellDef="let element">
-      <button [disabled]="getBtnStatus(allBooking[element])" (click)="goTo(element)" type="submit" id ="button" style="text-decoration:none;">
-        {{ getBtnTexts(allBooking[element]) }}
-      </button>
-    </td>
-  </ng-container>
-</div>
+    <ng-container matColumnDef="Action">
+      <th *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          [disabled]="getBtnStatus(allBooking[element])"
+          (click)="navigateTo(element)"
+          type="submit"
+          id="button"
+          style="text-decoration: none"
+        >
+          {{ getBtnTexts(allBooking[element]) }}
+        </button>
+      </td>
+    </ng-container>
+  </div>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
 </table>

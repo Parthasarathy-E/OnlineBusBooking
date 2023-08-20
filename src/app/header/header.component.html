@@ -10,6 +10,10 @@
     <a (click)="navigateTo('/mybookings')" *ngIf="getUserType() == 'user'"
       >My Bookings</a
     >
+    <a (click)="navigateTo('/admindashboard')" *ngIf="getUserType() == 'admin'"
+      >Dashboard</a
+    >
+
     <a (click)="navigateTo('/adminlogin')" *ngIf="getUserType() == 'no-user'"
       >Admin Login</a
     >
