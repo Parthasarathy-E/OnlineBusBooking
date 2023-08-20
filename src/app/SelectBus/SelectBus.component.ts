@@ -36,7 +36,7 @@ export class SelectBusComponent implements OnInit {
     private http: HttpClient,
     private admin: AdminService,
     private user: UserService,
-    private logger:NGXLogger
+    private logger: NGXLogger
   ) {}
 
   ngOnInit() {
@@ -59,13 +59,18 @@ export class SelectBusComponent implements OnInit {
   }
   bookbus(Bus: any) {
     this.logger.error(
-      "User" +
-      ' : ' +
-      localStorage.getItem('userId')+ " Selected Travels  : " + Bus.Travels_Name
+      'User' +
+        ' : ' +
+        localStorage.getItem('userId') +
+        ' Selected Travels  : ' +
+        Bus.Travels_Name
     );
     this.user
       .setSelectedBus(Object.assign(Bus, { id: 1 }))
       .subscribe((res) => console.log(res));
-    this.router.navigate(['/selectseat']);
+    this.navigateTo('/selectseat');
+  }
+  navigateTo(toPath: any) {
+    this.router.navigate([toPath]);
   }
 }
